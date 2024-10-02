@@ -1,0 +1,110 @@
+<mujocoinclude model="MyoTorsoRigid_v0.0.1">
+    <body name="torso" childclass="myotorso" pos=" -0.1   0   0" euler="1.57 0.0 0.0">
+        <geom name="rajhat_spine" type="mesh" mesh="rajhat_spine"></geom>
+        <geom name="rajhat_jaw" type="mesh" mesh="rajhat_jaw"></geom>
+        <geom name="rajhat_skull" type="mesh" mesh="rajhat_skull"></geom>
+        <geom name="rajhat_ribs_scap" type="mesh" mesh="rajhat_ribs_scap"></geom>
+        <inertial pos="   -0.03     0.32        0" mass="26.8266" fullinertia="  1.4745   0.7555   1.4314        0        0        0"></inertial>
+        <joint name="rajlumbar_extension" type="hinge" pos="0 0 0" axis="       0        0        1" limited="true" range=" -1.5708   1.5708" ref="0"></joint>
+        <joint name="rajlumbar_bending" type="hinge" pos="0 0 0" axis="       1        0        0" limited="true" range=" -1.5708   1.5708" ref="0"></joint>
+        <joint name="rajlumbar_rotation" type="hinge" pos="0 0 0" axis="       0        1        0" limited="true" range=" -1.5708   1.5708" ref="0"></joint>
+        <body name="rajhumerus_r" pos="0.003155   0.3715     0.17" quat="1.0 0.0 0.0 0.0">
+          <geom name="rajhumerus_rv" type="mesh" mesh="rajhumerus_rv"></geom>
+          <inertial pos="       0 -0.164502        0" mass="2.0325" fullinertia="0.011946 0.004121 0.013409        0        0        0"></inertial>
+          <joint name="rajarm_flex_r" type="hinge" pos="0 0 0" axis="       0        0        1" limited="true" range=" -1.5708   1.5708" ref="0"></joint>
+          <joint name="rajarm_add_r" type="hinge" pos="0 0 0" axis="       1        0        0" limited="true" range=" -2.0944   1.5708" ref="0"></joint>
+          <joint name="rajarm_rot_r" type="hinge" pos="0 0 0" axis="       0        1        0" limited="true" range=" -1.5708   1.5708" ref="0"></joint>
+          <body name="rajulna_r" pos="0.013144 -0.286273 -0.009595" quat="1.0 1.6893809785063376e-18 -6.938893903907228e-18 4.155190089080778e-20">
+            <geom name="rajulna_rv" type="mesh" mesh="rajulna_rv"></geom>
+            <inertial pos="       0 -0.120525        0" mass="0.6075" fullinertia="0.002962 0.000618 0.003213        0        0        0"></inertial>
+            <joint name="rajelbow_flex_r" type="hinge" pos="0 0 0" axis="0.226047 0.022269 0.973862" limited="true" range="       0    2.618" ref="0"></joint>
+            <body name="rajradius_r" pos="-0.006727 -0.013007 0.026083" quat="1.0 2.301201592641875e-21 -6.933378131686372e-19 1.7489241099837954e-19">
+              <geom name="rajradius_rv" type="mesh" mesh="rajradius_rv"></geom>
+              <inertial pos="       0 -0.120525        0" mass="0.6075" fullinertia="0.002962 0.000618 0.003213        0        0        0"></inertial>
+              <joint name="rajpro_sup_r" type="hinge" pos="0 0 0" axis="0.056398 0.998406 0.001952" limited="true" range="       0   1.5708" ref="0"></joint>
+              <body name="rajhand_r" pos="-0.008797 -0.235841  0.01361" quat="1.0 0.0 8.407790785948892e-45 0.0">
+                <geom name="rajpisiform_rvs" type="mesh" mesh="rajpisiform_rvs"></geom>
+                <geom name="rajlunate_rvs" type="mesh" mesh="rajlunate_rvs"></geom>
+                <geom name="rajscaphoid_rvs" type="mesh" mesh="rajscaphoid_rvs"></geom>
+                <geom name="rajtriquetrum_rvs" type="mesh" mesh="rajtriquetrum_rvs"></geom>
+                <geom name="rajhamate_rvs" type="mesh" mesh="rajhamate_rvs"></geom>
+                <geom name="rajcapitate_rvs" type="mesh" mesh="rajcapitate_rvs"></geom>
+                <geom name="rajtrapezoid_rvs" type="mesh" mesh="rajtrapezoid_rvs"></geom>
+                <geom name="rajtrapezium_rvs" type="mesh" mesh="rajtrapezium_rvs"></geom>
+                <geom name="rajmetacarpal2_rvs" type="mesh" mesh="rajmetacarpal2_rvs"></geom>
+                <geom name="rajindex_proximal_rvs" type="mesh" mesh="rajindex_proximal_rvs"></geom>
+                <geom name="rajindex_medial_rvs" type="mesh" mesh="rajindex_medial_rvs"></geom>
+                <geom name="rajindex_distal_rvs" type="mesh" mesh="rajindex_distal_rvs"></geom>
+                <geom name="rajmetacarpal3_rvs" type="mesh" mesh="rajmetacarpal3_rvs"></geom>
+                <geom name="rajmiddle_proximal_rvs" type="mesh" mesh="rajmiddle_proximal_rvs"></geom>
+                <geom name="rajmiddle_medial_rvs" type="mesh" mesh="rajmiddle_medial_rvs"></geom>
+                <geom name="rajmiddle_distal_rvs" type="mesh" mesh="rajmiddle_distal_rvs"></geom>
+                <geom name="rajmetacarpal4_rvs" type="mesh" mesh="rajmetacarpal4_rvs"></geom>
+                <geom name="rajring_proximal_rvs" type="mesh" mesh="rajring_proximal_rvs"></geom>
+                <geom name="rajring_medial_rvs" type="mesh" mesh="rajring_medial_rvs"></geom>
+                <geom name="rajring_distal_rvs" type="mesh" mesh="rajring_distal_rvs"></geom>
+                <geom name="rajmetacarpal5_rvs" type="mesh" mesh="rajmetacarpal5_rvs"></geom>
+                <geom name="rajlittle_proximal_rvs" type="mesh" mesh="rajlittle_proximal_rvs"></geom>
+                <geom name="rajlittle_medial_rvs" type="mesh" mesh="rajlittle_medial_rvs"></geom>
+                <geom name="rajlittle_distal_rvs" type="mesh" mesh="rajlittle_distal_rvs"></geom>
+                <geom name="rajmetacarpal1_rvs" type="mesh" mesh="rajmetacarpal1_rvs"></geom>
+                <geom name="rajthumb_proximal_rvs" type="mesh" mesh="rajthumb_proximal_rvs"></geom>
+                <geom name="rajthumb_distal_rvs" type="mesh" mesh="rajthumb_distal_rvs"></geom>
+                <inertial pos="       0 -0.068095        0" mass="0.4575" fullinertia="0.000892 0.000547  0.00134        0        0        0"></inertial>
+                <joint name="rajwrist_flex_r" type="hinge" pos="0 0 0" axis="-3.55271e-15 3.55271e-15        1" limited="true" range="-1.22173  1.22173" ref="0"></joint>
+                <joint name="rajwrist_dev_r" type="hinge" pos="0 0 0" axis="       1        0 3.55271e-15" limited="true" range="-0.436332 0.610865" ref="0"></joint>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="rajhumerus_l" pos="0.003155   0.3715    -0.17" quat="1.0 0.0 0.0 0.0">
+          <geom name="rajhumerus_lv" type="mesh" mesh="rajhumerus_lv"></geom>
+          <inertial pos="       0 -0.164502        0" mass="2.0325" fullinertia="0.011946 0.004121 0.013409        0        0        0"></inertial>
+          <joint name="rajarm_flex_l" type="hinge" pos="0 0 0" axis="       0        0        1" limited="true" range=" -1.5708   1.5708" ref="0"></joint>
+          <joint name="rajarm_add_l" type="hinge" pos="0 0 0" axis="      -1        0        0" limited="true" range=" -2.0944   1.5708" ref="0"></joint>
+          <joint name="rajarm_rot_l" type="hinge" pos="0 0 0" axis="       0       -1        0" limited="true" range=" -1.5708   1.5708" ref="0"></joint>
+          <body name="rajulna_l" pos="0.013144 -0.286273 0.009595" quat="1.0 -1.6893809785063376e-18 6.938893903907228e-18 4.155190089080778e-20">
+            <geom name="rajulna_lv" type="mesh" mesh="rajulna_lv"></geom>
+            <inertial pos="       0 -0.120525        0" mass="0.6075" fullinertia="0.002962 0.000618 0.003213        0        0        0"></inertial>
+            <joint name="rajelbow_flex_l" type="hinge" pos="0 0 0" axis="-0.226047 -0.022269 0.973862" limited="true" range="       0    2.618" ref="0"></joint>
+            <body name="rajradius_l" pos="-0.006727 -0.013007 -0.026083" quat="1.0 -2.301201592641875e-21 6.933378131686372e-19 1.7489241099837954e-19">
+              <geom name="rajradius_lv" type="mesh" mesh="rajradius_lv"></geom>
+              <inertial pos="       0 -0.120525        0" mass="0.6075" fullinertia="0.002962 0.000618 0.003213        0        0        0"></inertial>
+              <joint name="rajpro_sup_l" type="hinge" pos="0 0 0" axis="-0.056398 -0.998406 0.001952" limited="true" range="       0   1.5708" ref="0"></joint>
+              <body name="rajhand_l" pos="-0.008797 -0.235841 -0.01361" quat="1.0 0.0 8.407790785948892e-45 0.0">
+                <geom name="rajpisiform_lvs" type="mesh" mesh="rajpisiform_lvs"></geom>
+                <geom name="rajlunate_lvs" type="mesh" mesh="rajlunate_lvs"></geom>
+                <geom name="rajscaphoid_lvs" type="mesh" mesh="rajscaphoid_lvs"></geom>
+                <geom name="rajtriquetrum_lvs" type="mesh" mesh="rajtriquetrum_lvs"></geom>
+                <geom name="rajhamate_lvs" type="mesh" mesh="rajhamate_lvs"></geom>
+                <geom name="rajcapitate_lvs" type="mesh" mesh="rajcapitate_lvs"></geom>
+                <geom name="rajtrapezoid_lvs" type="mesh" mesh="rajtrapezoid_lvs"></geom>
+                <geom name="rajtrapezium_lvs" type="mesh" mesh="rajtrapezium_lvs"></geom>
+                <geom name="rajmetacarpal2_lvs" type="mesh" mesh="rajmetacarpal2_lvs"></geom>
+                <geom name="rajindex_proximal_lvs" type="mesh" mesh="rajindex_proximal_lvs"></geom>
+                <geom name="rajindex_medial_lvs" type="mesh" mesh="rajindex_medial_lvs"></geom>
+                <geom name="rajindex_distal_lvs" type="mesh" mesh="rajindex_distal_lvs"></geom>
+                <geom name="rajmetacarpal3_lvs" type="mesh" mesh="rajmetacarpal3_lvs"></geom>
+                <geom name="rajmiddle_proximal_lvs" type="mesh" mesh="rajmiddle_proximal_lvs"></geom>
+                <geom name="rajmiddle_medial_lvs" type="mesh" mesh="rajmiddle_medial_lvs"></geom>
+                <geom name="rajmiddle_distal_lvs" type="mesh" mesh="rajmiddle_distal_lvs"></geom>
+                <geom name="rajmetacarpal4_lvs" type="mesh" mesh="rajmetacarpal4_lvs"></geom>
+                <geom name="rajring_proximal_lvs" type="mesh" mesh="rajring_proximal_lvs"></geom>
+                <geom name="rajring_medial_lvs" type="mesh" mesh="rajring_medial_lvs"></geom>
+                <geom name="rajring_distal_lvs" type="mesh" mesh="rajring_distal_lvs"></geom>
+                <geom name="rajmetacarpal5_lvs" type="mesh" mesh="rajmetacarpal5_lvs"></geom>
+                <geom name="rajlittle_proximal_lvs" type="mesh" mesh="rajlittle_proximal_lvs"></geom>
+                <geom name="rajlittle_medial_lvs" type="mesh" mesh="rajlittle_medial_lvs"></geom>
+                <geom name="rajlittle_distal_lvs" type="mesh" mesh="rajlittle_distal_lvs"></geom>
+                <geom name="rajmetacarpal1_lvs" type="mesh" mesh="rajmetacarpal1_lvs"></geom>
+                <geom name="rajthumb_proximal_lvs" type="mesh" mesh="rajthumb_proximal_lvs"></geom>
+                <geom name="rajthumb_distal_lvs" type="mesh" mesh="rajthumb_distal_lvs"></geom>
+                <inertial pos="       0 -0.068095        0" mass="0.4575" fullinertia="0.000892 0.000547  0.00134        0        0        0"></inertial>
+                <joint name="rajwrist_flex_l" type="hinge" pos="0 0 0" axis="-3.55271e-15 -3.55271e-15        1" limited="true" range="-1.22173  1.22173" ref="0"></joint>
+                <joint name="rajwrist_dev_l" type="hinge" pos="0 0 0" axis="      -1        0 -3.55271e-15" limited="true" range="-0.436332 0.610865" ref="0"></joint>
+              </body>
+            </body>
+          </body>
+        </body>
+    </body>
+</mujocoinclude>

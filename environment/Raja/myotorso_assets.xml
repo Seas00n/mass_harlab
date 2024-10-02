@@ -1,0 +1,105 @@
+<mujocoinclude model="MyoTorsoRigid_v0.0.1">
+    <default>
+        <default class="myotorso">
+            <geom material="mat_myotorso" rgba="0.8 0.85 0.8 1" conaffinity="0" contype="0"/>
+        </default>
+        <default class="myotorso_coll">
+            <geom type="capsule" group="4" contype="1" conaffinity="0" condim="3" rgba="0.8 0.7 .5 1" margin="0.001" material="MatSkin_myotorso"/>
+        </default>
+    </default>
+    <asset>
+        <texture name="tex_myotorso" builtin="flat" height="762" mark="cross" markrgb="1 .9 .9" rgb1="1 1 1" rgb2="1 1 1" type="cube" width="127"/>
+        <material name="mat_myotorso" texture="tex_myotorso" texuniform="true"/>
+        <texture name="texplane" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 0.15 0.2" width="100" height="100"></texture>
+        <material name="MatPlane" reflectance="0.0" texture="texplane" texrepeat="1 1" texuniform="true"></material>
+        <mesh name="rajhat_spine" file="raj/Geometry/hat_spine.stl" scale="       1        1        1"></mesh>
+        <mesh name="rajhat_jaw" file="raj/Geometry/hat_jaw.stl" scale="       1        1        1"></mesh>
+        <mesh name="rajhat_skull" file="raj/Geometry/hat_skull.stl" scale="       1        1        1"></mesh>
+        <mesh name="rajhat_ribs_scap" file="raj/Geometry/hat_ribs_scap.stl" scale="       1        1        1"></mesh>
+        <mesh name="rajhumerus_rv" file="raj/Geometry/humerus_rv.stl" scale="       1        1        1"></mesh>
+        <mesh name="rajulna_rv" file="raj/Geometry/ulna_rv.stl" scale="       1        1        1"></mesh>
+        <mesh name="rajradius_rv" file="raj/Geometry/radius_rv.stl" scale="       1        1        1"></mesh>
+        <mesh name="rajpisiform_rvs" file="raj/Geometry/pisiform_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajlunate_rvs" file="raj/Geometry/lunate_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajscaphoid_rvs" file="raj/Geometry/scaphoid_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajtriquetrum_rvs" file="raj/Geometry/triquetrum_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajhamate_rvs" file="raj/Geometry/hamate_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajcapitate_rvs" file="raj/Geometry/capitate_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajtrapezoid_rvs" file="raj/Geometry/trapezoid_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajtrapezium_rvs" file="raj/Geometry/trapezium_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmetacarpal2_rvs" file="raj/Geometry/metacarpal2_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajindex_proximal_rvs" file="raj/Geometry/index_proximal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajindex_medial_rvs" file="raj/Geometry/index_medial_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajindex_distal_rvs" file="raj/Geometry/index_distal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmetacarpal3_rvs" file="raj/Geometry/metacarpal3_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmiddle_proximal_rvs" file="raj/Geometry/middle_proximal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmiddle_medial_rvs" file="raj/Geometry/middle_medial_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmiddle_distal_rvs" file="raj/Geometry/middle_distal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmetacarpal4_rvs" file="raj/Geometry/metacarpal4_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajring_proximal_rvs" file="raj/Geometry/ring_proximal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajring_medial_rvs" file="raj/Geometry/ring_medial_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajring_distal_rvs" file="raj/Geometry/ring_distal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmetacarpal5_rvs" file="raj/Geometry/metacarpal5_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajlittle_proximal_rvs" file="raj/Geometry/little_proximal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajlittle_medial_rvs" file="raj/Geometry/little_medial_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajlittle_distal_rvs" file="raj/Geometry/little_distal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmetacarpal1_rvs" file="raj/Geometry/metacarpal1_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajthumb_proximal_rvs" file="raj/Geometry/thumb_proximal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajthumb_distal_rvs" file="raj/Geometry/thumb_distal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajhumerus_lv" file="raj/Geometry/humerus_lv.stl" scale="       1        1        1"></mesh>
+        <mesh name="rajulna_lv" file="raj/Geometry/ulna_lv.stl" scale="       1        1        1"></mesh>
+        <mesh name="rajradius_lv" file="raj/Geometry/radius_lv.stl" scale="       1        1        1"></mesh>
+        <mesh name="rajpisiform_lvs" file="raj/Geometry/pisiform_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajlunate_lvs" file="raj/Geometry/lunate_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajscaphoid_lvs" file="raj/Geometry/scaphoid_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajtriquetrum_lvs" file="raj/Geometry/triquetrum_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajhamate_lvs" file="raj/Geometry/hamate_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajcapitate_lvs" file="raj/Geometry/capitate_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajtrapezoid_lvs" file="raj/Geometry/trapezoid_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajtrapezium_lvs" file="raj/Geometry/trapezium_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmetacarpal2_lvs" file="raj/Geometry/metacarpal2_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajindex_proximal_lvs" file="raj/Geometry/index_proximal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajindex_medial_lvs" file="raj/Geometry/index_medial_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajindex_distal_lvs" file="raj/Geometry/index_distal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmetacarpal3_lvs" file="raj/Geometry/metacarpal3_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmiddle_proximal_lvs" file="raj/Geometry/middle_proximal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmiddle_medial_lvs" file="raj/Geometry/middle_medial_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmiddle_distal_lvs" file="raj/Geometry/middle_distal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmetacarpal4_lvs" file="raj/Geometry/metacarpal4_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajring_proximal_lvs" file="raj/Geometry/ring_proximal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajring_medial_lvs" file="raj/Geometry/ring_medial_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajring_distal_lvs" file="raj/Geometry/ring_distal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmetacarpal5_lvs" file="raj/Geometry/metacarpal5_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajlittle_proximal_lvs" file="raj/Geometry/little_proximal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajlittle_medial_lvs" file="raj/Geometry/little_medial_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajlittle_distal_lvs" file="raj/Geometry/little_distal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajmetacarpal1_lvs" file="raj/Geometry/metacarpal1_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajthumb_proximal_lvs" file="raj/Geometry/thumb_proximal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+        <mesh name="rajthumb_distal_lvs" file="raj/Geometry/thumb_distal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    </asset>
+    <actuator>
+        <motor name="lumbar_ext" joint="rajlumbar_extension"/>
+        <motor name="lumbar_bend" joint="rajlumbar_bending"/>
+        <motor name="lumbar_rot" joint="rajlumbar_rotation"/>
+        <motor name="shoulder_flex_r" joint="rajarm_flex_r"/>
+        <motor name="shoulder_add_r" joint="rajarm_add_r"/>
+        <motor name="shoulder_rot_r" joint="rajarm_rot_r"/>
+        <motor name="elbow_flex_r" joint="rajelbow_flex_r"/>
+        <motor name="pro_sup_r" joint="rajpro_sup_r"/>
+        <motor name="wrist_flex_r" joint="rajwrist_flex_r"/>
+        <motor name="wrist_dev_r" joint="rajwrist_dev_r"/>
+        <motor name="shoulder_flex_l" joint="rajarm_flex_l"/>
+        <motor name="shoulder_add_l" joint="rajarm_add_l"/>
+        <motor name="shoulder_rot_l" joint="rajarm_rot_l"/>
+        <motor name="elbow_flex_l" joint="rajelbow_flex_l"/>
+        <motor name="pro_sup_l" joint="rajpro_sup_l"/>
+        <motor name="wrist_flex_l" joint="rajwrist_flex_l"/>
+        <motor name="wrist_dev_l" joint="rajwrist_dev_l"/>
+    </actuator>
+    <equality>
+        <joint name="rajwrist_flex_r_constraint" active="true" joint1="rajwrist_flex_r" polycoef="       0        0        0        0        0"></joint>
+        <joint name="rajwrist_dev_r_constraint" active="true" joint1="rajwrist_dev_r" polycoef="       0        0        0        0        0"></joint>
+        <joint name="rajwrist_flex_l_constraint" active="true" joint1="rajwrist_flex_l" polycoef="       0        0        0        0        0"></joint>
+        <joint name="rajwrist_dev_l_constraint" active="true" joint1="rajwrist_dev_l" polycoef="       0        0        0        0        0"></joint>
+    </equality>
+</mujocoinclude>

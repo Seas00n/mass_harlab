@@ -1,0 +1,1170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujocoinclude model="FullBodyModel_MuscleActuatedLowerLimb_TorqueActuatedUpperBody">
+  <compiler angle="radian" balanceinertia="true" boundmass="0.001" boundinertia="0.001">
+    <lengthrange inttotal="50" useexisting="true"></lengthrange>
+  </compiler>
+  <default>
+    <joint limited="true" damping="0.5" armature="0.1" stiffness="2"></joint>
+    <geom rgba="0.8 0.6 .4 1" margin="0.001"></geom>
+    <site size="0.001"></site>
+    <tendon width="0.001" rgba=".95 .3 .3 1" limited="false"></tendon>
+    <!-- <default class="muscle">
+      <muscle ctrllimited="true" ctrlrange="0 1" scale="200"></muscle>
+    </default> -->
+    <default class="motor">
+      <general gainprm="5 0 0 0 0 0 0 0 0 0"></general>
+    </default>
+  </default>
+  <option timestep="0.002"></option>
+  <size njmax="1000" nconmax="400" nuser_jnt="1"></size>
+  <worldbody>
+    <geom name="rajfloor" pos="0 0 0" size="10 10 0.125" type="plane" material="MatPlane" condim="3"></geom>
+    <body name="rajpelvis" pos="       0 6.73556e-17      1.1" quat="0.7071067811865475 0.7071067811865475 0.0 0.0">
+      <light mode="trackcom" directional="false" pos="0 0 4.0" dir="0 0 -1"></light>
+      <geom name="rajr_pelvis" type="mesh" mesh="rajr_pelvis"></geom>
+      <geom name="rajl_pelvis" type="mesh" mesh="rajl_pelvis"></geom>
+      <geom name="rajsacrum" type="mesh" mesh="rajsacrum"></geom>
+      <inertial pos=" -0.0707        0        0" mass="11.777" fullinertia="  0.1028   0.0871   0.0579        0        0        0"></inertial>
+      <site name="rajaddbrev_r-P1" pos="-0.0191 -0.094 0.0154"></site>
+      <site name="rajaddlong_r-P1" pos="-0.00758 -0.0889 0.01888"></site>
+      <site name="rajaddmagDist_r-P1" pos="-0.07404 -0.12767 0.03982"></site>
+      <site name="rajaddmagIsch_r-P1" pos="-0.08962 -0.12976 0.04171"></site>
+      <site name="rajaddmagMid_r-P1" pos="-0.05266 -0.12075 0.02854"></site>
+      <site name="rajaddmagProx_r-P1" pos="-0.03098 -0.10755 0.01365"></site>
+      <site name="rajbflh_r-P1" pos="-0.104 -0.1191 0.0586"></site>
+      <site name="rajglmax1_r-P1" pos="-0.1231 0.0345 0.0563"></site>
+      <site name="rajglmax1_r-P2" pos="-0.1257 -0.0242 0.0779"></site>
+      <site name="rajglmax2_r-P1" pos="-0.1317 0.0087 0.0462"></site>
+      <site name="rajglmax2_r-P2" pos="-0.1344 -0.0609 0.0813"></site>
+      <site name="rajglmax3_r-P1" pos="-0.13 -0.0525 0.009"></site>
+      <site name="rajglmax3_r-P2" pos="-0.1273 -0.1263 0.0435"></site>
+      <site name="rajglmed1_r-P1" pos="-0.0445 0.0245 0.1172"></site>
+      <site name="rajglmed2_r-P1" pos="-0.085 0.0316 0.0675"></site>
+      <site name="rajglmed3_r-P1" pos="-0.1152 -0.0073 0.0526"></site>
+      <site name="rajglmin1_r-P1" pos="-0.0464 -0.0149 0.1042"></site>
+      <site name="rajglmin2_r-P1" pos="-0.0616 -0.0142 0.0971"></site>
+      <site name="rajglmin3_r-P1" pos="-0.0789 -0.0155 0.0798"></site>
+      <site name="rajgrac_r-P1" pos="-0.04736 -0.12932 0.02456"></site>
+      <site name="rajiliacus_r-P1" pos="-0.0605 0.0309 0.0843"></site>
+      <site name="rajiliacus_r-P2" pos="-0.0135 -0.0557 0.0756"></site>
+      <site name="rajpiri_r-P1" pos="-0.10181 -0.00653 0.01351"></site>
+      <site name="rajpiri_r-P2" pos="-0.10202 -0.03066 0.06092"></site>
+      <site name="rajpsoas_r-P1" pos="-0.0606 0.062 0.039"></site>
+      <site name="rajpsoas_r-P2" pos="-0.0205 -0.0654 0.0656"></site>
+      <site name="rajrecfem_r-P1" pos="-0.024 -0.0388 0.0933"></site>
+      <site name="rajsart_r-P1" pos="-0.0195 -0.0156 0.1056"></site>
+      <site name="rajsemimem_r-P1" pos="-0.0987 -0.114 0.0614"></site>
+      <site name="rajsemiten_r-P1" pos="-0.1038 -0.1253 0.0515"></site>
+      <site name="rajtfl_r-P1" pos="-0.0311 0.0214 0.1241"></site>
+      <site name="rajaddbrev_l-P1" pos="-0.0191 -0.094 -0.0154"></site>
+      <site name="rajaddlong_l-P1" pos="-0.00758 -0.0889 -0.01888"></site>
+      <site name="rajaddmagDist_l-P1" pos="-0.07404 -0.12767 -0.03982"></site>
+      <site name="rajaddmagIsch_l-P1" pos="-0.08962 -0.12976 -0.04171"></site>
+      <site name="rajaddmagMid_l-P1" pos="-0.05266 -0.12075 -0.02854"></site>
+      <site name="rajaddmagProx_l-P1" pos="-0.03098 -0.10755 -0.01365"></site>
+      <site name="rajbflh_l-P1" pos="-0.104 -0.1191 -0.0586"></site>
+      <site name="rajglmax1_l-P1" pos="-0.1231 0.0345 -0.0563"></site>
+      <site name="rajglmax1_l-P2" pos="-0.1257 -0.0242 -0.0779"></site>
+      <site name="rajglmax2_l-P1" pos="-0.1317 0.0087 -0.0462"></site>
+      <site name="rajglmax2_l-P2" pos="-0.1344 -0.0609 -0.0813"></site>
+      <site name="rajglmax3_l-P1" pos="-0.13 -0.0525 -0.009"></site>
+      <site name="rajglmax3_l-P2" pos="-0.1273 -0.1263 -0.0435"></site>
+      <site name="rajglmed1_l-P1" pos="-0.0445 0.0245 -0.1172"></site>
+      <site name="rajglmed2_l-P1" pos="-0.085 0.0316 -0.0675"></site>
+      <site name="rajglmed3_l-P1" pos="-0.1152 -0.0073 -0.0526"></site>
+      <site name="rajglmin1_l-P1" pos="-0.0464 -0.0149 -0.1042"></site>
+      <site name="rajglmin2_l-P1" pos="-0.0616 -0.0142 -0.0971"></site>
+      <site name="rajglmin3_l-P1" pos="-0.0789 -0.0155 -0.0798"></site>
+      <site name="rajgrac_l-P1" pos="-0.04736 -0.12932 -0.02456"></site>
+      <site name="rajiliacus_l-P1" pos="-0.0605 0.0309 -0.0843"></site>
+      <site name="rajiliacus_l-P2" pos="-0.0135 -0.0557 -0.0756"></site>
+      <site name="rajpiri_l-P1" pos="-0.10181 -0.00653 -0.01351"></site>
+      <site name="rajpiri_l-P2" pos="-0.10202 -0.03066 -0.06092"></site>
+      <site name="rajpsoas_l-P1" pos="-0.0606 0.062 -0.039"></site>
+      <site name="rajpsoas_l-P2" pos="-0.0205 -0.0654 -0.0656"></site>
+      <site name="rajrecfem_l-P1" pos="-0.024 -0.0388 -0.0933"></site>
+      <site name="rajsart_l-P1" pos="-0.0195 -0.0156 -0.1056"></site>
+      <site name="rajsemimem_l-P1" pos="-0.0987 -0.114 -0.0614"></site>
+      <site name="rajsemiten_l-P1" pos="-0.1038 -0.1253 -0.0515"></site>
+      <site name="rajtfl_l-P1" pos="-0.0311 0.0214 -0.1241"></site>
+      <joint name="rajpelvis_tz" type="slide" pos="0 0 0" axis="       0        0        1" limited="true" range="      -3        3" ref="0" armature="0" damping="0" stiffness="0"></joint>
+      <joint name="rajpelvis_ty" type="slide" pos="0 0 0" axis="       0        1        0" limited="true" range="      -1        2" ref="0" armature="0" damping="0" stiffness="0"></joint>
+      <joint name="rajpelvis_tx" type="slide" pos="0 0 0" axis="       1        0        0" limited="true" range="      -5        5" ref="0" armature="0" damping="0" stiffness="0"></joint>
+      <joint name="rajpelvis_tilt" type="hinge" pos="0 0 0" axis="       0        0        1" limited="true" range=" -1.5708   1.5708" ref="0" armature="0" damping="0" stiffness="0"></joint>
+      <joint name="rajpelvis_list" type="hinge" pos="0 0 0" axis="       1        0        0" limited="true" range=" -1.5708   1.5708" ref="0" armature="0" damping="0" stiffness="0"></joint>
+      <joint name="rajpelvis_rotation" type="hinge" pos="0 0 0" axis="       0        1        0" limited="true" range=" -1.5708   1.5708" ref="0" armature="0" damping="0" stiffness="0"></joint>
+      <body name="rajfemur_r" pos="-0.056276 -0.07849  0.07726" quat="1.0 0.0 0.0 0.0">
+        <geom name="rajr_femur" type="mesh" mesh="rajr_femur"></geom>
+        <inertial pos="       0    -0.17        0" mass="9.3014" fullinertia="  0.1339   0.0351   0.1412        0        0        0"></inertial>
+        <site name="rajaddbrev_r-P2" pos="-0.002 -0.118 0.0249"></site>
+        <site name="rajaddlong_r-P2" pos="0.01126 -0.23937 0.01583"></site>
+        <site name="rajaddmagDist_r-P2" pos="0.01125 -0.2625 0.0193"></site>
+        <site name="rajaddmagIsch_r-P2" pos="0.00481 -0.38797 -0.03273"></site>
+        <site name="rajaddmagMid_r-P2" pos="0.00242 -0.1624 0.02922"></site>
+        <site name="rajaddmagProx_r-P2" pos="-0.01527 -0.07886 0.03202"></site>
+        <site name="rajbfsh_r-P1" pos="0.005 -0.2111 0.0234"></site>
+        <site name="rajgaslat_r-P1" pos="-0.003 -0.3814 0.0277"></site>
+        <site name="rajgasmed_r-P1" pos="0.008 -0.3788 -0.0208"></site>
+        <site name="rajglmax1_r-P3" pos="-0.0444 -0.0326 0.0302"></site>
+        <site name="rajglmax1_r-P4" pos="-0.0277 -0.0566 0.047"></site>
+        <site name="rajglmax2_r-P3" pos="-0.045 -0.0584 0.0252"></site>
+        <site name="rajglmax2_r-P4" pos="-0.0156 -0.1016 0.0419"></site>
+        <site name="rajglmax3_r-P3" pos="-0.0281 -0.1125 0.0094"></site>
+        <site name="rajglmax3_r-P4" pos="-0.006 -0.1419 0.0411"></site>
+        <site name="rajglmed1_r-P2" pos="-0.0218 -0.0117 0.0555"></site>
+        <site name="rajglmed2_r-P2" pos="-0.0258 -0.0058 0.0527"></site>
+        <site name="rajglmed3_r-P2" pos="-0.0309 -0.0047 0.0518"></site>
+        <site name="rajglmin1_r-P2" pos="-0.0072 -0.0104 0.056"></site>
+        <site name="rajglmin2_r-P2" pos="-0.0096 -0.0104 0.056"></site>
+        <site name="rajglmin3_r-P2" pos="-0.0135 -0.0083 0.055"></site>
+        <site name="rajiliacus_r-P3" pos="-0.0023 -0.0565 0.0139"></site>
+        <site name="rajiliacus_r-P4" pos="-0.0122 -0.0637 0.0196"></site>
+        <site name="rajpiri_r-P3" pos="-0.0148 -0.0036 0.0437"></site>
+        <site name="rajpsoas_r-P3" pos="-0.0132 -0.0467 0.0046"></site>
+        <site name="rajpsoas_r-P4" pos="-0.0235 -0.0524 0.0088"></site>
+        <site name="rajsart_r-P2" pos="-0.003 -0.3568 -0.0421"></site>
+        <site name="rajtfl_r-P2" pos="0.0294 -0.0995 0.0597"></site>
+        <site name="rajtfl_r-P3" pos="0.0107 -0.405 0.0324"></site>
+        <site name="rajvasint_r-P1" pos="0.029 -0.1924 0.031"></site>
+        <site name="rajvasint_r-P2" pos="0.0335 -0.2084 0.0285"></site>
+        <site name="rajvaslat_r-P1" pos="0.0048 -0.1854 0.0349"></site>
+        <site name="rajvaslat_r-P2" pos="0.0269 -0.2591 0.0409"></site>
+        <site name="rajvasmed_r-P1" pos="0.014 -0.2099 0.0188"></site>
+        <site name="rajvasmed_r-P2" pos="0.0356 -0.2769 0.0009"></site>
+        <joint name="rajhip_flexion_r" type="hinge" pos="0 0 0" axis="       0        0        1" limited="true" range="-0.523599   2.0944" ref="0"></joint>
+        <joint name="rajhip_adduction_r" type="hinge" pos="0 0 0" axis="       1        0        0" limited="true" range="-0.872665 0.523599" ref="0"></joint>
+        <joint name="rajhip_rotation_r" type="hinge" pos="0 0 0" axis="       0        1        0" limited="true" range="-0.698132 0.698132" ref="0"></joint>
+        <body name="rajtibia_r" pos="-4.6e-07 -0.404425 -0.00126526" quat="1.0 7.240636975890137e-18 -9.456205735995121e-17 -2.960068750797159e-20">
+          <geom name="rajr_tibia" type="mesh" mesh="rajr_tibia"></geom>
+          <geom name="rajr_fibula" type="mesh" mesh="rajr_fibula"></geom>
+          <inertial pos="       0  -0.1867        0" mass="3.7075" fullinertia="  0.0504   0.0051   0.0511        0        0        0"></inertial>
+          <site name="rajbflh_r-P2" pos="-0.0337 -0.035 0.0253"></site>
+          <site name="rajbflh_r-P3" pos="-0.0287 -0.0455 0.0303"></site>
+          <site name="rajbfsh_r-P2" pos="-0.0301 -0.0419 0.0318"></site>
+          <site name="rajedl_r-P1" pos="-0.016 -0.1157 0.0205"></site>
+          <site name="rajedl_r-P2" pos="0.0164 -0.376 0.0112"></site>
+          <site name="rajehl_r-P1" pos="-0.014 -0.155 0.0189"></site>
+          <site name="rajehl_r-P2" pos="0.0071 -0.2909 0.0164"></site>
+          <site name="rajehl_r-P3" pos="0.02 -0.3693 -0.0028"></site>
+          <site name="rajfdl_r-P1" pos="-0.0023 -0.1832 -0.0018"></site>
+          <site name="rajfdl_r-P2" pos="-0.0176 -0.3645 -0.0124"></site>
+          <site name="rajfhl_r-P1" pos="-0.031 -0.2163 0.02"></site>
+          <site name="rajfhl_r-P2" pos="-0.0242 -0.3671 -0.0076"></site>
+          <site name="rajgrac_r-P2" pos="-0.01842 -0.04755 -0.02961"></site>
+          <site name="rajgrac_r-P3" pos="0.00178 -0.06962 -0.01573"></site>
+          <site name="rajperbrev_r-P1" pos="-0.0243 -0.2532 0.0251"></site>
+          <site name="rajperbrev_r-P2" pos="-0.0339 -0.3893 0.0249"></site>
+          <site name="rajperbrev_r-P3" pos="-0.0285 -0.4004 0.0255"></site>
+          <site name="rajperlong_r-P1" pos="-0.02 -0.1373 0.0282"></site>
+          <site name="rajperlong_r-P2" pos="-0.0317 -0.39 0.0237"></site>
+          <site name="rajperlong_r-P3" pos="-0.0272 -0.4014 0.024"></site>
+          <site name="rajrecfem_r-P5" pos="0.0326 -0.06312 -0.00047"></site>
+          <site name="rajsart_r-P3" pos="-0.0251 -0.0401 -0.0365"></site>
+          <site name="rajsart_r-P4" pos="-0.0159 -0.0599 -0.0264"></site>
+          <site name="rajsart_r-P5" pos="0.0136 -0.081 -0.0026"></site>
+          <site name="rajsemimem_r-P2" pos="-0.029 -0.0417 -0.0196"></site>
+          <site name="rajsemiten_r-P2" pos="-0.0312 -0.0508 -0.0229"></site>
+          <site name="rajsemiten_r-P3" pos="0.0019 -0.0773 -0.0117"></site>
+          <site name="rajsoleus_r-P1" pos="-0.0076 -0.0916 0.0098"></site>
+          <site name="rajtfl_r-P4" pos="0.0108 -0.041 0.0346"></site>
+          <site name="rajtibant_r-P1" pos="0.0154 -0.1312 0.0162"></site>
+          <site name="rajtibant_r-P2" pos="0.0251 -0.1906 0.0128"></site>
+          <site name="rajtibant_r-P3" pos="0.0233 -0.3659 -0.0132"></site>
+          <site name="rajtibpost_r-P1" pos="-0.0041 -0.1304 0.0103"></site>
+          <site name="rajtibpost_r-P2" pos="-0.0164 -0.3655 -0.0175"></site>
+          <site name="rajvasint_r-P5" pos="0.03257 -0.0632 0.00043"></site>
+          <site name="rajvaslat_r-P5" pos="0.03254 -0.06338 0.00511"></site>
+          <site name="rajvasmed_r-P5" pos="0.0319 -0.06357 -0.00678"></site>
+          <joint name="rajknee_angle_r_translation2" type="slide" pos="0 0 0" axis="0.992246 0.123982 -0.00878916" limited="true" range="7.69254e-11 0.006792" ref="0"></joint>
+          <joint name="rajknee_angle_r_translation1" type="slide" pos="0 0 0" axis="-0.124293 0.989762 -0.0701648" limited="true" range="9.53733e-08 0.00159883" ref="0"></joint>
+          <joint name="rajknee_angle_r" type="hinge" pos="0 0 0" axis="-3.98373e-10 -0.0707131 -0.997497" limited="true" range="       0   2.0944" ref="0"></joint>
+          <joint name="rajknee_angle_r_rotation2" type="hinge" pos="0 0 0" axis="0.992246 0.123982 -0.00878916" limited="true" range="-0.00167821 0.0335354" ref="0"></joint>
+          <joint name="rajknee_angle_r_rotation3" type="hinge" pos="0 0 0" axis="-0.124293 0.989762 -0.0701648" limited="true" range="1.08939e-08 0.262788" ref="0"></joint>
+          <body name="rajtalus_r" pos="   -0.01     -0.4        0" quat="1.0 -6.036754011562992e-18 1.5193252867388614e-18 -2.498419531737724e-19">
+            <geom name="rajr_talus" type="mesh" mesh="rajr_talus"></geom>
+            <inertial pos="       0        0        0" mass="0.1" fullinertia="   0.001    0.001    0.001        0        0        0"></inertial>
+            <joint name="rajankle_angle_r" type="hinge" pos="0 0 0" axis="-0.105014 -0.174022 0.979126" limited="true" range="-0.698132 0.523599" ref="0"></joint>
+            <body name="rajcalcn_r" pos="-0.04877 -0.04195  0.00792" quat="1.0 -5.320429553087796e-19 1.609289071159989e-17 -2.1848634538867752e-17">
+              <geom name="rajr_foot" type="mesh" mesh="rajr_foot"></geom>
+              <inertial pos="     0.1     0.03        0" mass="1.25" fullinertia="  0.0014   0.0039   0.0041        0        0        0"></inertial>
+              <site name="rajedl_r-P3" pos="0.0919 0.036 0.0008"></site>
+              <site name="rajedl_r-P4" pos="0.1616 0.0055 0.013"></site>
+              <site name="rajehl_r-P4" pos="0.097 0.0389 -0.0211"></site>
+              <site name="rajehl_r-P5" pos="0.1293 0.0309 -0.0257"></site>
+              <site name="rajehl_r-P6" pos="0.1734 0.0139 -0.028"></site>
+              <site name="rajfdl_r-P3" pos="0.0436 0.0315 -0.028"></site>
+              <site name="rajfdl_r-P4" pos="0.0708 0.0176 -0.0263"></site>
+              <site name="rajfdl_r-P5" pos="0.1658 -0.0081 0.0116"></site>
+              <site name="rajfhl_r-P3" pos="0.0374 0.0276 -0.0241"></site>
+              <site name="rajfhl_r-P4" pos="0.1038 0.0068 -0.0256"></site>
+              <site name="rajfhl_r-P5" pos="0.1726 -0.0053 -0.0269"></site>
+              <site name="rajgaslat_r-P2" pos="0.0044 0.031 -0.0053"></site>
+              <site name="rajgasmed_r-P2" pos="0.0044 0.031 -0.0053"></site>
+              <site name="rajperbrev_r-P4" pos="0.0471 0.027 0.0233"></site>
+              <site name="rajperbrev_r-P5" pos="0.0677 0.0219 0.0343"></site>
+              <site name="rajperlong_r-P4" pos="0.0438 0.023 0.0221"></site>
+              <site name="rajperlong_r-P5" pos="0.0681 0.0106 0.0284"></site>
+              <site name="rajperlong_r-P6" pos="0.0852 0.0069 0.0118"></site>
+              <site name="rajperlong_r-P7" pos="0.1203 0.0085 -0.0184"></site>
+              <site name="rajsoleus_r-P2" pos="0.0044 0.031 -0.0053"></site>
+              <site name="rajtibant_r-P4" pos="0.1166 0.0178 -0.0305"></site>
+              <site name="rajtibpost_r-P3" pos="0.0417 0.0334 -0.0286"></site>
+              <site name="rajtibpost_r-P4" pos="0.0772 0.0159 -0.0281"></site>
+              <joint name="rajsubtalar_angle_r" type="hinge" pos="0 0 0" axis=" 0.78718 0.604747 -0.120949" limited="true" range="-0.349066 0.349066" ref="0"></joint>
+              <body name="rajtoes_r" pos="  0.1788   -0.002  0.00108" quat="1.0 1.314867274624753e-31 -2.6810890689525335e-17 -3.939849802505862e-32">
+                <geom name="rajr_bofoot" type="mesh" mesh="rajr_bofoot"></geom>
+                <inertial pos="  0.0346    0.006  -0.0175" mass="0.2166" fullinertia="  0.0001   0.0002    0.001        0        0        0"></inertial>
+                <site name="rajedl_r-P5" pos="0.0003 0.0047 0.0153"></site>
+                <site name="rajedl_r-P6" pos="0.0443 -0.0004 0.025"></site>
+                <site name="rajehl_r-P7" pos="0.0298 0.0041 -0.0245"></site>
+                <site name="rajehl_r-P8" pos="0.0563 0.0034 -0.0186"></site>
+                <site name="rajfdl_r-P6" pos="-0.0019 -0.0078 0.0147"></site>
+                <site name="rajfdl_r-P7" pos="0.0285 -0.0071 0.0215"></site>
+                <site name="rajfdl_r-P8" pos="0.0441 -0.006 0.0242"></site>
+                <site name="rajfhl_r-P6" pos="0.0155 -0.0064 -0.0265"></site>
+                <site name="rajfhl_r-P7" pos="0.0562 -0.0102 -0.0181"></site>
+                <joint name="rajmtp_angle_r" type="hinge" pos="0 0 0" axis="0.580954 2.6299e-15 -0.813936" limited="true" range="-0.523599 0.523599" ref="0"></joint>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="rajpatella_r" pos="-0.00809 -0.40796        0" quat="1.0 0.0 0.0 0.0">
+          <geom name="rajr_patella" type="mesh" mesh="rajr_patella"></geom>
+          <inertial pos="  0.0018   0.0264        0" mass="0.0862" fullinertia="2.87e-06 1.311e-05 1.311e-05        0        0        0"></inertial>
+          <site name="rajrecfem_r-P2" pos="0.01 0.049 0.0007"></site>
+          <site name="rajrecfem_r-P3" pos="0.0121 0.0437 -0.001"></site>
+          <site name="rajrecfem_r-P4" pos="0.005 0.00247 3e-005"></site>
+          <site name="rajvasint_r-P3" pos="0.0058 0.048 -0.0006"></site>
+          <site name="rajvasint_r-P4" pos="0.005 0.00247 -0.00039"></site>
+          <site name="rajvaslat_r-P3" pos="0.0103 0.0423 0.0141"></site>
+          <site name="rajvaslat_r-P4" pos="0.005 0.00247 0.00733"></site>
+          <site name="rajvasmed_r-P3" pos="0.0063 0.0445 -0.017"></site>
+          <site name="rajvasmed_r-P4" pos="0.005 0.00247 -0.0085"></site>
+          <joint name="rajknee_angle_r_beta_translation2" type="slide" pos="0 0 0" axis="       0        1        0" limited="true" range="-0.0408267 -0.0108281" ref="0"></joint>
+          <joint name="rajknee_angle_r_beta_translation1" type="slide" pos="0 0 0" axis="       1        0        0" limited="true" range="-0.0227731 0.0524192" ref="0"></joint>
+          <joint name="rajknee_angle_r_beta_rotation1" type="hinge" pos="0 0 0" axis="       0        0        1" limited="true" range="-1.79241 0.010506" ref="0"></joint>
+        </body>
+      </body>
+      <body name="rajfemur_l" pos="-0.056276 -0.07849 -0.07726" quat="1.0 0.0 0.0 0.0">
+        <geom name="rajl_femur" type="mesh" mesh="rajl_femur"></geom>
+        <inertial pos="       0    -0.17        0" mass="9.3014" fullinertia="  0.1339   0.0351   0.1412        0        0        0"></inertial>
+        <site name="rajaddbrev_l-P2" pos="-0.002 -0.118 -0.0249"></site>
+        <site name="rajaddlong_l-P2" pos="0.01126 -0.23937 -0.01583"></site>
+        <site name="rajaddmagDist_l-P2" pos="0.01125 -0.2625 -0.0193"></site>
+        <site name="rajaddmagIsch_l-P2" pos="0.00481 -0.38797 0.03273"></site>
+        <site name="rajaddmagMid_l-P2" pos="0.00242 -0.1624 -0.02922"></site>
+        <site name="rajaddmagProx_l-P2" pos="-0.01527 -0.07886 -0.03202"></site>
+        <site name="rajbfsh_l-P1" pos="0.005 -0.2111 -0.0234"></site>
+        <site name="rajgaslat_l-P1" pos="-0.003 -0.3814 -0.0277"></site>
+        <site name="rajgasmed_l-P1" pos="0.008 -0.3788 0.0208"></site>
+        <site name="rajglmax1_l-P3" pos="-0.0444 -0.0326 -0.0302"></site>
+        <site name="rajglmax1_l-P4" pos="-0.0277 -0.0566 -0.047"></site>
+        <site name="rajglmax2_l-P3" pos="-0.045 -0.0584 -0.0252"></site>
+        <site name="rajglmax2_l-P4" pos="-0.0156 -0.1016 -0.0419"></site>
+        <site name="rajglmax3_l-P3" pos="-0.0281 -0.1125 -0.0094"></site>
+        <site name="rajglmax3_l-P4" pos="-0.006 -0.1419 -0.0411"></site>
+        <site name="rajglmed1_l-P2" pos="-0.0218 -0.0117 -0.0555"></site>
+        <site name="rajglmed2_l-P2" pos="-0.0258 -0.0058 -0.0527"></site>
+        <site name="rajglmed3_l-P2" pos="-0.0309 -0.0047 -0.0518"></site>
+        <site name="rajglmin1_l-P2" pos="-0.0072 -0.0104 -0.056"></site>
+        <site name="rajglmin2_l-P2" pos="-0.0096 -0.0104 -0.056"></site>
+        <site name="rajglmin3_l-P2" pos="-0.0135 -0.0083 -0.055"></site>
+        <site name="rajiliacus_l-P3" pos="-0.0023 -0.0565 -0.0139"></site>
+        <site name="rajiliacus_l-P4" pos="-0.0122 -0.0637 -0.0196"></site>
+        <site name="rajpiri_l-P3" pos="-0.0148 -0.0036 -0.0437"></site>
+        <site name="rajpsoas_l-P3" pos="-0.0132 -0.0467 -0.0046"></site>
+        <site name="rajpsoas_l-P4" pos="-0.0235 -0.0524 -0.0088"></site>
+        <site name="rajsart_l-P2" pos="-0.003 -0.3568 0.0421"></site>
+        <site name="rajtfl_l-P2" pos="0.0294 -0.0995 -0.0597"></site>
+        <site name="rajtfl_l-P3" pos="0.0107 -0.405 -0.0324"></site>
+        <site name="rajvasint_l-P1" pos="0.029 -0.1924 -0.031"></site>
+        <site name="rajvasint_l-P2" pos="0.0335 -0.2084 -0.0285"></site>
+        <site name="rajvaslat_l-P1" pos="0.0048 -0.1854 -0.0349"></site>
+        <site name="rajvaslat_l-P2" pos="0.0269 -0.2591 -0.0409"></site>
+        <site name="rajvasmed_l-P1" pos="0.014 -0.2099 -0.0188"></site>
+        <site name="rajvasmed_l-P2" pos="0.0356 -0.2769 -0.0009"></site>
+        <joint name="rajhip_flexion_l" type="hinge" pos="0 0 0" axis="       0        0        1" limited="true" range="-0.523599   2.0944" ref="0"></joint>
+        <joint name="rajhip_adduction_l" type="hinge" pos="0 0 0" axis="      -1       -0       -0" limited="true" range="-0.872665 0.523599" ref="0"></joint>
+        <joint name="rajhip_rotation_l" type="hinge" pos="0 0 0" axis="      -0       -1       -0" limited="true" range="-0.698132 0.698132" ref="0"></joint>
+        <body name="rajtibia_l" pos="-4.6e-07 -0.404425 0.00126526" quat="1.0 -7.240636975890137e-18 9.456205735995121e-17 -2.960068750797159e-20">
+          <geom name="rajl_tibia" type="mesh" mesh="rajl_tibia"></geom>
+          <geom name="rajl_fibula" type="mesh" mesh="rajl_fibula"></geom>
+          <inertial pos="       0  -0.1867        0" mass="3.7075" fullinertia="  0.0504   0.0051   0.0511        0        0        0"></inertial>
+          <site name="rajbflh_l-P2" pos="-0.0337 -0.035 -0.0253"></site>
+          <site name="rajbflh_l-P3" pos="-0.0287 -0.0455 -0.0303"></site>
+          <site name="rajbfsh_l-P2" pos="-0.0301 -0.0419 -0.0318"></site>
+          <site name="rajedl_l-P1" pos="-0.016 -0.1157 -0.0205"></site>
+          <site name="rajedl_l-P2" pos="0.0164 -0.376 -0.0112"></site>
+          <site name="rajehl_l-P1" pos="-0.014 -0.155 -0.0189"></site>
+          <site name="rajehl_l-P2" pos="0.0071 -0.2909 -0.0164"></site>
+          <site name="rajehl_l-P3" pos="0.02 -0.3693 0.0028"></site>
+          <site name="rajfdl_l-P1" pos="-0.0023 -0.1832 0.0018"></site>
+          <site name="rajfdl_l-P2" pos="-0.0176 -0.3645 0.0124"></site>
+          <site name="rajfhl_l-P1" pos="-0.031 -0.2163 -0.02"></site>
+          <site name="rajfhl_l-P2" pos="-0.0242 -0.3671 0.0076"></site>
+          <site name="rajgrac_l-P2" pos="-0.01842 -0.04755 0.02961"></site>
+          <site name="rajgrac_l-P3" pos="0.00178 -0.06962 0.01573"></site>
+          <site name="rajperbrev_l-P1" pos="-0.0243 -0.2532 -0.0251"></site>
+          <site name="rajperbrev_l-P2" pos="-0.0339 -0.3893 -0.0249"></site>
+          <site name="rajperbrev_l-P3" pos="-0.0285 -0.4004 -0.0255"></site>
+          <site name="rajperlong_l-P1" pos="-0.02 -0.1373 -0.0282"></site>
+          <site name="rajperlong_l-P2" pos="-0.0317 -0.39 -0.0237"></site>
+          <site name="rajperlong_l-P3" pos="-0.0272 -0.4014 -0.024"></site>
+          <site name="rajrecfem_l-P5" pos="0.0326 -0.06312 0.00047"></site>
+          <site name="rajsart_l-P3" pos="-0.0251 -0.0401 0.0365"></site>
+          <site name="rajsart_l-P4" pos="-0.0159 -0.0599 0.0264"></site>
+          <site name="rajsart_l-P5" pos="0.0136 -0.081 0.0026"></site>
+          <site name="rajsemimem_l-P2" pos="-0.029 -0.0417 0.0196"></site>
+          <site name="rajsemiten_l-P2" pos="-0.0312 -0.0508 0.0229"></site>
+          <site name="rajsemiten_l-P3" pos="0.0019 -0.0773 0.0117"></site>
+          <site name="rajsoleus_l-P1" pos="-0.0076 -0.0916 -0.0098"></site>
+          <site name="rajtfl_l-P4" pos="0.0108 -0.041 -0.0346"></site>
+          <site name="rajtibant_l-P1" pos="0.0154 -0.1312 -0.0162"></site>
+          <site name="rajtibant_l-P2" pos="0.0251 -0.1906 -0.0128"></site>
+          <site name="rajtibant_l-P3" pos="0.0233 -0.3659 0.0132"></site>
+          <site name="rajtibpost_l-P1" pos="-0.0041 -0.1304 -0.0103"></site>
+          <site name="rajtibpost_l-P2" pos="-0.0164 -0.3655 0.0175"></site>
+          <site name="rajvasint_l-P5" pos="0.03257 -0.0632 -0.00043"></site>
+          <site name="rajvaslat_l-P5" pos="0.03254 -0.06338 -0.00511"></site>
+          <site name="rajvasmed_l-P5" pos="0.0319 -0.06357 0.00678"></site>
+          <joint name="rajknee_angle_l_translation2" type="slide" pos="0 0 0" axis="-0.992246 -0.123982 -0.00878916" limited="true" range="-0.006792 -7.69254e-11" ref="0"></joint>
+          <joint name="rajknee_angle_l_translation1" type="slide" pos="0 0 0" axis="-0.124293 0.989762 0.0701648" limited="true" range="9.53733e-08 0.00159883" ref="0"></joint>
+          <joint name="rajknee_angle_l" type="hinge" pos="0 0 0" axis="3.98373e-10 0.0707131 -0.997497" limited="true" range="       0   2.0944" ref="0"></joint>
+          <joint name="rajknee_angle_l_rotation2" type="hinge" pos="0 0 0" axis="-0.992246 -0.123982 -0.00878916" limited="true" range="-0.00167821 0.0335354" ref="0"></joint>
+          <joint name="rajknee_angle_l_rotation3" type="hinge" pos="0 0 0" axis="-0.124293 0.989762 0.0701648" limited="true" range="-0.262788 -1.08939e-08" ref="0"></joint>
+          <body name="rajtalus_l" pos="   -0.01     -0.4        0" quat="1.0 6.036754011562992e-18 -1.5193252867388614e-18 -2.498419531737724e-19">
+            <geom name="rajl_talus" type="mesh" mesh="rajl_talus"></geom>
+            <inertial pos="       0        0        0" mass="0.1" fullinertia="   0.001    0.001    0.001        0        0        0"></inertial>
+            <joint name="rajankle_angle_l" type="hinge" pos="0 0 0" axis="0.105014 0.174022 0.979126" limited="true" range="-0.698132 0.523599" ref="0"></joint>
+            <body name="rajcalcn_l" pos="-0.04877 -0.04195 -0.00792" quat="1.0 5.320429553087796e-19 -1.609289071159989e-17 -2.1848634538867752e-17">
+              <geom name="rajl_foot" type="mesh" mesh="rajl_foot"></geom>
+              <inertial pos="     0.1     0.03        0" mass="1.25" fullinertia="  0.0014   0.0039   0.0041        0        0        0"></inertial>
+              <site name="rajedl_l-P3" pos="0.0919 0.036 -0.0008"></site>
+              <site name="rajedl_l-P4" pos="0.1616 0.0055 -0.013"></site>
+              <site name="rajehl_l-P4" pos="0.097 0.0389 0.0211"></site>
+              <site name="rajehl_l-P5" pos="0.1293 0.0309 0.0257"></site>
+              <site name="rajehl_l-P6" pos="0.1734 0.0139 0.028"></site>
+              <site name="rajfdl_l-P3" pos="0.0436 0.0315 0.028"></site>
+              <site name="rajfdl_l-P4" pos="0.0708 0.0176 0.0263"></site>
+              <site name="rajfdl_l-P5" pos="0.1658 -0.0081 -0.0116"></site>
+              <site name="rajfhl_l-P3" pos="0.0374 0.0276 0.0241"></site>
+              <site name="rajfhl_l-P4" pos="0.1038 0.0068 0.0256"></site>
+              <site name="rajfhl_l-P5" pos="0.1726 -0.0053 0.0269"></site>
+              <site name="rajgaslat_l-P2" pos="0.0044 0.031 0.0053"></site>
+              <site name="rajgasmed_l-P2" pos="0.0044 0.031 0.0053"></site>
+              <site name="rajperbrev_l-P4" pos="0.0471 0.027 -0.0233"></site>
+              <site name="rajperbrev_l-P5" pos="0.0677 0.0219 -0.0343"></site>
+              <site name="rajperlong_l-P4" pos="0.0438 0.023 -0.0221"></site>
+              <site name="rajperlong_l-P5" pos="0.0681 0.0106 -0.0284"></site>
+              <site name="rajperlong_l-P6" pos="0.0852 0.0069 -0.0118"></site>
+              <site name="rajperlong_l-P7" pos="0.1203 0.0085 0.0184"></site>
+              <site name="rajsoleus_l-P2" pos="0.0044 0.031 0.0053"></site>
+              <site name="rajtibant_l-P4" pos="0.1166 0.0178 0.0305"></site>
+              <site name="rajtibpost_l-P3" pos="0.0417 0.0334 0.0286"></site>
+              <site name="rajtibpost_l-P4" pos="0.0772 0.0159 0.0281"></site>
+              <joint name="rajsubtalar_angle_l" type="hinge" pos="0 0 0" axis="-0.78718 -0.604747 -0.120949" limited="true" range="-0.349066 0.349066" ref="0"></joint>
+              <body name="rajtoes_l" pos="  0.1788   -0.002 -0.00108" quat="1.0 1.314867274624753e-31 2.6810890689525335e-17 3.939849802505862e-32">
+                <geom name="rajl_bofoot" type="mesh" mesh="rajl_bofoot"></geom>
+                <inertial pos="  0.0346    0.006   0.0175" mass="0.2166" fullinertia="  0.0001   0.0002    0.001        0        0        0"></inertial>
+                <site name="rajedl_l-P5" pos="0.0003 0.0047 -0.0153"></site>
+                <site name="rajedl_l-P6" pos="0.0443 -0.0004 -0.025"></site>
+                <site name="rajehl_l-P7" pos="0.0298 0.0041 0.0245"></site>
+                <site name="rajehl_l-P8" pos="0.0563 0.0034 0.0186"></site>
+                <site name="rajfdl_l-P6" pos="-0.0019 -0.0078 -0.0147"></site>
+                <site name="rajfdl_l-P7" pos="0.0285 -0.0071 -0.0215"></site>
+                <site name="rajfdl_l-P8" pos="0.0441 -0.006 -0.0242"></site>
+                <site name="rajfhl_l-P6" pos="0.0155 -0.0064 0.0265"></site>
+                <site name="rajfhl_l-P7" pos="0.0562 -0.0102 0.0181"></site>
+                <joint name="rajmtp_angle_l" type="hinge" pos="0 0 0" axis="-0.580954 2.6299e-15 -0.813936" limited="true" range="-0.523599 0.523599" ref="0"></joint>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="rajpatella_l" pos="-0.00809 -0.40796        0" quat="1.0 0.0 0.0 0.0">
+          <geom name="rajl_patella" type="mesh" mesh="rajl_patella"></geom>
+          <inertial pos="  0.0018   0.0264        0" mass="0.0862" fullinertia="2.87e-06 1.311e-05 1.311e-05        0        0        0"></inertial>
+          <site name="rajrecfem_l-P2" pos="0.01 0.049 -0.0007"></site>
+          <site name="rajrecfem_l-P3" pos="0.0121 0.0437 0.001"></site>
+          <site name="rajrecfem_l-P4" pos="0.005 0.00247 -3e-005"></site>
+          <site name="rajvasint_l-P3" pos="0.0058 0.048 0.0006"></site>
+          <site name="rajvasint_l-P4" pos="0.005 0.00247 0.00039"></site>
+          <site name="rajvaslat_l-P3" pos="0.0103 0.0423 -0.0141"></site>
+          <site name="rajvaslat_l-P4" pos="0.005 0.00247 -0.00733"></site>
+          <site name="rajvasmed_l-P3" pos="0.0063 0.0445 0.017"></site>
+          <site name="rajvasmed_l-P4" pos="0.005 0.00247 0.0085"></site>
+          <joint name="rajknee_angle_l_beta_translation2" type="slide" pos="0 0 0" axis="       0        1        0" limited="true" range="-0.0408267 -0.0108281" ref="0"></joint>
+          <joint name="rajknee_angle_l_beta_translation1" type="slide" pos="0 0 0" axis="       1        0        0" limited="true" range="-0.0227731 0.0524192" ref="0"></joint>
+          <joint name="rajknee_angle_l_beta_rotation1" type="hinge" pos="0 0 0" axis="       0        0        1" limited="true" range="-1.79241 0.010506" ref="0"></joint>
+        </body>
+      </body>
+      <body name="rajtorso" pos=" -0.1007   0.0815        0" quat="1.0 0.0 0.0 0.0">
+        <geom name="rajhat_spine" type="mesh" mesh="rajhat_spine"></geom>
+        <geom name="rajhat_jaw" type="mesh" mesh="rajhat_jaw"></geom>
+        <geom name="rajhat_skull" type="mesh" mesh="rajhat_skull"></geom>
+        <geom name="rajhat_ribs_scap" type="mesh" mesh="rajhat_ribs_scap"></geom>
+        <inertial pos="   -0.03     0.32        0" mass="26.8266" fullinertia="  1.4745   0.7555   1.4314        0        0        0"></inertial>
+        <joint name="rajlumbar_extension" type="hinge" pos="0 0 0" axis="       0        0        1" limited="true" range=" -1.5708   1.5708" ref="0"></joint>
+        <joint name="rajlumbar_bending" type="hinge" pos="0 0 0" axis="       1        0        0" limited="true" range=" -1.5708   1.5708" ref="0"></joint>
+        <joint name="rajlumbar_rotation" type="hinge" pos="0 0 0" axis="       0        1        0" limited="true" range=" -1.5708   1.5708" ref="0"></joint>
+        <body name="rajhumerus_r" pos="0.003155   0.3715     0.17" quat="1.0 0.0 0.0 0.0">
+          <geom name="rajhumerus_rv" type="mesh" mesh="rajhumerus_rv"></geom>
+          <inertial pos="       0 -0.164502        0" mass="2.0325" fullinertia="0.011946 0.004121 0.013409        0        0        0"></inertial>
+          <joint name="rajarm_flex_r" type="hinge" pos="0 0 0" axis="       0        0        1" limited="true" range=" -1.5708   1.5708" ref="0"></joint>
+          <joint name="rajarm_add_r" type="hinge" pos="0 0 0" axis="       1        0        0" limited="true" range=" -2.0944   1.5708" ref="0"></joint>
+          <joint name="rajarm_rot_r" type="hinge" pos="0 0 0" axis="       0        1        0" limited="true" range=" -1.5708   1.5708" ref="0"></joint>
+          <body name="rajulna_r" pos="0.013144 -0.286273 -0.009595" quat="1.0 1.6893809785063376e-18 -6.938893903907228e-18 4.155190089080778e-20">
+            <geom name="rajulna_rv" type="mesh" mesh="rajulna_rv"></geom>
+            <inertial pos="       0 -0.120525        0" mass="0.6075" fullinertia="0.002962 0.000618 0.003213        0        0        0"></inertial>
+            <joint name="rajelbow_flex_r" type="hinge" pos="0 0 0" axis="0.226047 0.022269 0.973862" limited="true" range="       0    2.618" ref="0"></joint>
+            <body name="rajradius_r" pos="-0.006727 -0.013007 0.026083" quat="1.0 2.301201592641875e-21 -6.933378131686372e-19 1.7489241099837954e-19">
+              <geom name="rajradius_rv" type="mesh" mesh="rajradius_rv"></geom>
+              <inertial pos="       0 -0.120525        0" mass="0.6075" fullinertia="0.002962 0.000618 0.003213        0        0        0"></inertial>
+              <joint name="rajpro_sup_r" type="hinge" pos="0 0 0" axis="0.056398 0.998406 0.001952" limited="true" range="       0   1.5708" ref="0"></joint>
+              <body name="rajhand_r" pos="-0.008797 -0.235841  0.01361" quat="1.0 0.0 8.407790785948892e-45 0.0">
+                <geom name="rajpisiform_rvs" type="mesh" mesh="rajpisiform_rvs"></geom>
+                <geom name="rajlunate_rvs" type="mesh" mesh="rajlunate_rvs"></geom>
+                <geom name="rajscaphoid_rvs" type="mesh" mesh="rajscaphoid_rvs"></geom>
+                <geom name="rajtriquetrum_rvs" type="mesh" mesh="rajtriquetrum_rvs"></geom>
+                <geom name="rajhamate_rvs" type="mesh" mesh="rajhamate_rvs"></geom>
+                <geom name="rajcapitate_rvs" type="mesh" mesh="rajcapitate_rvs"></geom>
+                <geom name="rajtrapezoid_rvs" type="mesh" mesh="rajtrapezoid_rvs"></geom>
+                <geom name="rajtrapezium_rvs" type="mesh" mesh="rajtrapezium_rvs"></geom>
+                <geom name="rajmetacarpal2_rvs" type="mesh" mesh="rajmetacarpal2_rvs"></geom>
+                <geom name="rajindex_proximal_rvs" type="mesh" mesh="rajindex_proximal_rvs"></geom>
+                <geom name="rajindex_medial_rvs" type="mesh" mesh="rajindex_medial_rvs"></geom>
+                <geom name="rajindex_distal_rvs" type="mesh" mesh="rajindex_distal_rvs"></geom>
+                <geom name="rajmetacarpal3_rvs" type="mesh" mesh="rajmetacarpal3_rvs"></geom>
+                <geom name="rajmiddle_proximal_rvs" type="mesh" mesh="rajmiddle_proximal_rvs"></geom>
+                <geom name="rajmiddle_medial_rvs" type="mesh" mesh="rajmiddle_medial_rvs"></geom>
+                <geom name="rajmiddle_distal_rvs" type="mesh" mesh="rajmiddle_distal_rvs"></geom>
+                <geom name="rajmetacarpal4_rvs" type="mesh" mesh="rajmetacarpal4_rvs"></geom>
+                <geom name="rajring_proximal_rvs" type="mesh" mesh="rajring_proximal_rvs"></geom>
+                <geom name="rajring_medial_rvs" type="mesh" mesh="rajring_medial_rvs"></geom>
+                <geom name="rajring_distal_rvs" type="mesh" mesh="rajring_distal_rvs"></geom>
+                <geom name="rajmetacarpal5_rvs" type="mesh" mesh="rajmetacarpal5_rvs"></geom>
+                <geom name="rajlittle_proximal_rvs" type="mesh" mesh="rajlittle_proximal_rvs"></geom>
+                <geom name="rajlittle_medial_rvs" type="mesh" mesh="rajlittle_medial_rvs"></geom>
+                <geom name="rajlittle_distal_rvs" type="mesh" mesh="rajlittle_distal_rvs"></geom>
+                <geom name="rajmetacarpal1_rvs" type="mesh" mesh="rajmetacarpal1_rvs"></geom>
+                <geom name="rajthumb_proximal_rvs" type="mesh" mesh="rajthumb_proximal_rvs"></geom>
+                <geom name="rajthumb_distal_rvs" type="mesh" mesh="rajthumb_distal_rvs"></geom>
+                <inertial pos="       0 -0.068095        0" mass="0.4575" fullinertia="0.000892 0.000547  0.00134        0        0        0"></inertial>
+                <joint name="rajwrist_flex_r" type="hinge" pos="0 0 0" axis="-3.55271e-15 3.55271e-15        1" limited="true" range="-1.22173  1.22173" ref="0"></joint>
+                <joint name="rajwrist_dev_r" type="hinge" pos="0 0 0" axis="       1        0 3.55271e-15" limited="true" range="-0.436332 0.610865" ref="0"></joint>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="rajhumerus_l" pos="0.003155   0.3715    -0.17" quat="1.0 0.0 0.0 0.0">
+          <geom name="rajhumerus_lv" type="mesh" mesh="rajhumerus_lv"></geom>
+          <inertial pos="       0 -0.164502        0" mass="2.0325" fullinertia="0.011946 0.004121 0.013409        0        0        0"></inertial>
+          <joint name="rajarm_flex_l" type="hinge" pos="0 0 0" axis="       0        0        1" limited="true" range=" -1.5708   1.5708" ref="0"></joint>
+          <joint name="rajarm_add_l" type="hinge" pos="0 0 0" axis="      -1        0        0" limited="true" range=" -2.0944   1.5708" ref="0"></joint>
+          <joint name="rajarm_rot_l" type="hinge" pos="0 0 0" axis="       0       -1        0" limited="true" range=" -1.5708   1.5708" ref="0"></joint>
+          <body name="rajulna_l" pos="0.013144 -0.286273 0.009595" quat="1.0 -1.6893809785063376e-18 6.938893903907228e-18 4.155190089080778e-20">
+            <geom name="rajulna_lv" type="mesh" mesh="rajulna_lv"></geom>
+            <inertial pos="       0 -0.120525        0" mass="0.6075" fullinertia="0.002962 0.000618 0.003213        0        0        0"></inertial>
+            <joint name="rajelbow_flex_l" type="hinge" pos="0 0 0" axis="-0.226047 -0.022269 0.973862" limited="true" range="       0    2.618" ref="0"></joint>
+            <body name="rajradius_l" pos="-0.006727 -0.013007 -0.026083" quat="1.0 -2.301201592641875e-21 6.933378131686372e-19 1.7489241099837954e-19">
+              <geom name="rajradius_lv" type="mesh" mesh="rajradius_lv"></geom>
+              <inertial pos="       0 -0.120525        0" mass="0.6075" fullinertia="0.002962 0.000618 0.003213        0        0        0"></inertial>
+              <joint name="rajpro_sup_l" type="hinge" pos="0 0 0" axis="-0.056398 -0.998406 0.001952" limited="true" range="       0   1.5708" ref="0"></joint>
+              <body name="rajhand_l" pos="-0.008797 -0.235841 -0.01361" quat="1.0 0.0 8.407790785948892e-45 0.0">
+                <geom name="rajpisiform_lvs" type="mesh" mesh="rajpisiform_lvs"></geom>
+                <geom name="rajlunate_lvs" type="mesh" mesh="rajlunate_lvs"></geom>
+                <geom name="rajscaphoid_lvs" type="mesh" mesh="rajscaphoid_lvs"></geom>
+                <geom name="rajtriquetrum_lvs" type="mesh" mesh="rajtriquetrum_lvs"></geom>
+                <geom name="rajhamate_lvs" type="mesh" mesh="rajhamate_lvs"></geom>
+                <geom name="rajcapitate_lvs" type="mesh" mesh="rajcapitate_lvs"></geom>
+                <geom name="rajtrapezoid_lvs" type="mesh" mesh="rajtrapezoid_lvs"></geom>
+                <geom name="rajtrapezium_lvs" type="mesh" mesh="rajtrapezium_lvs"></geom>
+                <geom name="rajmetacarpal2_lvs" type="mesh" mesh="rajmetacarpal2_lvs"></geom>
+                <geom name="rajindex_proximal_lvs" type="mesh" mesh="rajindex_proximal_lvs"></geom>
+                <geom name="rajindex_medial_lvs" type="mesh" mesh="rajindex_medial_lvs"></geom>
+                <geom name="rajindex_distal_lvs" type="mesh" mesh="rajindex_distal_lvs"></geom>
+                <geom name="rajmetacarpal3_lvs" type="mesh" mesh="rajmetacarpal3_lvs"></geom>
+                <geom name="rajmiddle_proximal_lvs" type="mesh" mesh="rajmiddle_proximal_lvs"></geom>
+                <geom name="rajmiddle_medial_lvs" type="mesh" mesh="rajmiddle_medial_lvs"></geom>
+                <geom name="rajmiddle_distal_lvs" type="mesh" mesh="rajmiddle_distal_lvs"></geom>
+                <geom name="rajmetacarpal4_lvs" type="mesh" mesh="rajmetacarpal4_lvs"></geom>
+                <geom name="rajring_proximal_lvs" type="mesh" mesh="rajring_proximal_lvs"></geom>
+                <geom name="rajring_medial_lvs" type="mesh" mesh="rajring_medial_lvs"></geom>
+                <geom name="rajring_distal_lvs" type="mesh" mesh="rajring_distal_lvs"></geom>
+                <geom name="rajmetacarpal5_lvs" type="mesh" mesh="rajmetacarpal5_lvs"></geom>
+                <geom name="rajlittle_proximal_lvs" type="mesh" mesh="rajlittle_proximal_lvs"></geom>
+                <geom name="rajlittle_medial_lvs" type="mesh" mesh="rajlittle_medial_lvs"></geom>
+                <geom name="rajlittle_distal_lvs" type="mesh" mesh="rajlittle_distal_lvs"></geom>
+                <geom name="rajmetacarpal1_lvs" type="mesh" mesh="rajmetacarpal1_lvs"></geom>
+                <geom name="rajthumb_proximal_lvs" type="mesh" mesh="rajthumb_proximal_lvs"></geom>
+                <geom name="rajthumb_distal_lvs" type="mesh" mesh="rajthumb_distal_lvs"></geom>
+                <inertial pos="       0 -0.068095        0" mass="0.4575" fullinertia="0.000892 0.000547  0.00134        0        0        0"></inertial>
+                <joint name="rajwrist_flex_l" type="hinge" pos="0 0 0" axis="-3.55271e-15 -3.55271e-15        1" limited="true" range="-1.22173  1.22173" ref="0"></joint>
+                <joint name="rajwrist_dev_l" type="hinge" pos="0 0 0" axis="      -1        0 -3.55271e-15" limited="true" range="-0.436332 0.610865" ref="0"></joint>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <camera name="for_testing" pos="0 0 0" euler="0 0 0"></camera>
+  </worldbody>
+  <asset>
+    <mesh name="rajr_pelvis" file="raj/Geometry/r_pelvis.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajl_pelvis" file="raj/Geometry/l_pelvis.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajsacrum" file="raj/Geometry/sacrum.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajr_femur" file="raj/Geometry/r_femur.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajr_tibia" file="raj/Geometry/r_tibia.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajr_fibula" file="raj/Geometry/r_fibula.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajr_talus" file="raj/Geometry/r_talus.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajr_foot" file="raj/Geometry/r_foot.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajr_bofoot" file="raj/Geometry/r_bofoot.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajr_patella" file="raj/Geometry/r_patella.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajl_femur" file="raj/Geometry/l_femur.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajl_tibia" file="raj/Geometry/l_tibia.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajl_fibula" file="raj/Geometry/l_fibula.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajl_talus" file="raj/Geometry/l_talus.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajl_foot" file="raj/Geometry/l_foot.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajl_bofoot" file="raj/Geometry/l_bofoot.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajl_patella" file="raj/Geometry/l_patella.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajhat_spine" file="raj/Geometry/hat_spine.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajhat_jaw" file="raj/Geometry/hat_jaw.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajhat_skull" file="raj/Geometry/hat_skull.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajhat_ribs_scap" file="raj/Geometry/hat_ribs_scap.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajhumerus_rv" file="raj/Geometry/humerus_rv.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajulna_rv" file="raj/Geometry/ulna_rv.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajradius_rv" file="raj/Geometry/radius_rv.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajpisiform_rvs" file="raj/Geometry/pisiform_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajlunate_rvs" file="raj/Geometry/lunate_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajscaphoid_rvs" file="raj/Geometry/scaphoid_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajtriquetrum_rvs" file="raj/Geometry/triquetrum_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajhamate_rvs" file="raj/Geometry/hamate_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajcapitate_rvs" file="raj/Geometry/capitate_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajtrapezoid_rvs" file="raj/Geometry/trapezoid_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajtrapezium_rvs" file="raj/Geometry/trapezium_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmetacarpal2_rvs" file="raj/Geometry/metacarpal2_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajindex_proximal_rvs" file="raj/Geometry/index_proximal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajindex_medial_rvs" file="raj/Geometry/index_medial_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajindex_distal_rvs" file="raj/Geometry/index_distal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmetacarpal3_rvs" file="raj/Geometry/metacarpal3_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmiddle_proximal_rvs" file="raj/Geometry/middle_proximal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmiddle_medial_rvs" file="raj/Geometry/middle_medial_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmiddle_distal_rvs" file="raj/Geometry/middle_distal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmetacarpal4_rvs" file="raj/Geometry/metacarpal4_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajring_proximal_rvs" file="raj/Geometry/ring_proximal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajring_medial_rvs" file="raj/Geometry/ring_medial_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajring_distal_rvs" file="raj/Geometry/ring_distal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmetacarpal5_rvs" file="raj/Geometry/metacarpal5_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajlittle_proximal_rvs" file="raj/Geometry/little_proximal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajlittle_medial_rvs" file="raj/Geometry/little_medial_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajlittle_distal_rvs" file="raj/Geometry/little_distal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmetacarpal1_rvs" file="raj/Geometry/metacarpal1_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajthumb_proximal_rvs" file="raj/Geometry/thumb_proximal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajthumb_distal_rvs" file="raj/Geometry/thumb_distal_rvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajhumerus_lv" file="raj/Geometry/humerus_lv.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajulna_lv" file="raj/Geometry/ulna_lv.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajradius_lv" file="raj/Geometry/radius_lv.stl" scale="       1        1        1"></mesh>
+    <mesh name="rajpisiform_lvs" file="raj/Geometry/pisiform_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajlunate_lvs" file="raj/Geometry/lunate_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajscaphoid_lvs" file="raj/Geometry/scaphoid_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajtriquetrum_lvs" file="raj/Geometry/triquetrum_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajhamate_lvs" file="raj/Geometry/hamate_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajcapitate_lvs" file="raj/Geometry/capitate_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajtrapezoid_lvs" file="raj/Geometry/trapezoid_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajtrapezium_lvs" file="raj/Geometry/trapezium_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmetacarpal2_lvs" file="raj/Geometry/metacarpal2_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajindex_proximal_lvs" file="raj/Geometry/index_proximal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajindex_medial_lvs" file="raj/Geometry/index_medial_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajindex_distal_lvs" file="raj/Geometry/index_distal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmetacarpal3_lvs" file="raj/Geometry/metacarpal3_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmiddle_proximal_lvs" file="raj/Geometry/middle_proximal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmiddle_medial_lvs" file="raj/Geometry/middle_medial_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmiddle_distal_lvs" file="raj/Geometry/middle_distal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmetacarpal4_lvs" file="raj/Geometry/metacarpal4_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajring_proximal_lvs" file="raj/Geometry/ring_proximal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajring_medial_lvs" file="raj/Geometry/ring_medial_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajring_distal_lvs" file="raj/Geometry/ring_distal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmetacarpal5_lvs" file="raj/Geometry/metacarpal5_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajlittle_proximal_lvs" file="raj/Geometry/little_proximal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajlittle_medial_lvs" file="raj/Geometry/little_medial_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajlittle_distal_lvs" file="raj/Geometry/little_distal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajmetacarpal1_lvs" file="raj/Geometry/metacarpal1_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajthumb_proximal_lvs" file="raj/Geometry/thumb_proximal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <mesh name="rajthumb_distal_lvs" file="raj/Geometry/thumb_distal_lvs.stl" scale="    0.85     0.85     0.85"></mesh>
+    <texture name="texplane" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 0.15 0.2" width="100" height="100"></texture>
+    <material name="MatPlane" reflectance="0.0" texture="texplane" texrepeat="1 1" texuniform="true"></material>
+  </asset>
+  <tendon>
+    <spatial name="rajaddbrev_r_tendon">
+      <site site="rajaddbrev_r-P1"></site>
+      <site site="rajaddbrev_r-P2"></site>
+    </spatial>
+    <spatial name="rajaddlong_r_tendon">
+      <site site="rajaddlong_r-P1"></site>
+      <site site="rajaddlong_r-P2"></site>
+    </spatial>
+    <spatial name="rajaddmagDist_r_tendon">
+      <site site="rajaddmagDist_r-P1"></site>
+      <site site="rajaddmagDist_r-P2"></site>
+    </spatial>
+    <spatial name="rajaddmagIsch_r_tendon">
+      <site site="rajaddmagIsch_r-P1"></site>
+      <site site="rajaddmagIsch_r-P2"></site>
+    </spatial>
+    <spatial name="rajaddmagMid_r_tendon">
+      <site site="rajaddmagMid_r-P1"></site>
+      <site site="rajaddmagMid_r-P2"></site>
+    </spatial>
+    <spatial name="rajaddmagProx_r_tendon">
+      <site site="rajaddmagProx_r-P1"></site>
+      <site site="rajaddmagProx_r-P2"></site>
+    </spatial>
+    <spatial name="rajbflh_r_tendon">
+      <site site="rajbflh_r-P1"></site>
+      <site site="rajbflh_r-P2"></site>
+      <site site="rajbflh_r-P3"></site>
+    </spatial>
+    <spatial name="rajbfsh_r_tendon">
+      <site site="rajbfsh_r-P1"></site>
+      <site site="rajbfsh_r-P2"></site>
+    </spatial>
+    <spatial name="rajedl_r_tendon">
+      <site site="rajedl_r-P1"></site>
+      <site site="rajedl_r-P2"></site>
+      <site site="rajedl_r-P3"></site>
+      <site site="rajedl_r-P4"></site>
+      <site site="rajedl_r-P5"></site>
+      <site site="rajedl_r-P6"></site>
+    </spatial>
+    <spatial name="rajehl_r_tendon">
+      <site site="rajehl_r-P1"></site>
+      <site site="rajehl_r-P2"></site>
+      <site site="rajehl_r-P3"></site>
+      <site site="rajehl_r-P4"></site>
+      <site site="rajehl_r-P5"></site>
+      <site site="rajehl_r-P6"></site>
+      <site site="rajehl_r-P7"></site>
+      <site site="rajehl_r-P8"></site>
+    </spatial>
+    <spatial name="rajfdl_r_tendon">
+      <site site="rajfdl_r-P1"></site>
+      <site site="rajfdl_r-P2"></site>
+      <site site="rajfdl_r-P3"></site>
+      <site site="rajfdl_r-P4"></site>
+      <site site="rajfdl_r-P5"></site>
+      <site site="rajfdl_r-P6"></site>
+      <site site="rajfdl_r-P7"></site>
+      <site site="rajfdl_r-P8"></site>
+    </spatial>
+    <spatial name="rajfhl_r_tendon">
+      <site site="rajfhl_r-P1"></site>
+      <site site="rajfhl_r-P2"></site>
+      <site site="rajfhl_r-P3"></site>
+      <site site="rajfhl_r-P4"></site>
+      <site site="rajfhl_r-P5"></site>
+      <site site="rajfhl_r-P6"></site>
+      <site site="rajfhl_r-P7"></site>
+    </spatial>
+    <spatial name="rajgaslat_r_tendon">
+      <site site="rajgaslat_r-P1"></site>
+      <site site="rajgaslat_r-P2"></site>
+    </spatial>
+    <spatial name="rajgasmed_r_tendon">
+      <site site="rajgasmed_r-P1"></site>
+      <site site="rajgasmed_r-P2"></site>
+    </spatial>
+    <spatial name="rajglmax1_r_tendon">
+      <site site="rajglmax1_r-P1"></site>
+      <site site="rajglmax1_r-P2"></site>
+      <site site="rajglmax1_r-P3"></site>
+      <site site="rajglmax1_r-P4"></site>
+    </spatial>
+    <spatial name="rajglmax2_r_tendon">
+      <site site="rajglmax2_r-P1"></site>
+      <site site="rajglmax2_r-P2"></site>
+      <site site="rajglmax2_r-P3"></site>
+      <site site="rajglmax2_r-P4"></site>
+    </spatial>
+    <spatial name="rajglmax3_r_tendon">
+      <site site="rajglmax3_r-P1"></site>
+      <site site="rajglmax3_r-P2"></site>
+      <site site="rajglmax3_r-P3"></site>
+      <site site="rajglmax3_r-P4"></site>
+    </spatial>
+    <spatial name="rajglmed1_r_tendon">
+      <site site="rajglmed1_r-P1"></site>
+      <site site="rajglmed1_r-P2"></site>
+    </spatial>
+    <spatial name="rajglmed2_r_tendon">
+      <site site="rajglmed2_r-P1"></site>
+      <site site="rajglmed2_r-P2"></site>
+    </spatial>
+    <spatial name="rajglmed3_r_tendon">
+      <site site="rajglmed3_r-P1"></site>
+      <site site="rajglmed3_r-P2"></site>
+    </spatial>
+    <spatial name="rajglmin1_r_tendon">
+      <site site="rajglmin1_r-P1"></site>
+      <site site="rajglmin1_r-P2"></site>
+    </spatial>
+    <spatial name="rajglmin2_r_tendon">
+      <site site="rajglmin2_r-P1"></site>
+      <site site="rajglmin2_r-P2"></site>
+    </spatial>
+    <spatial name="rajglmin3_r_tendon">
+      <site site="rajglmin3_r-P1"></site>
+      <site site="rajglmin3_r-P2"></site>
+    </spatial>
+    <spatial name="rajgrac_r_tendon">
+      <site site="rajgrac_r-P1"></site>
+      <site site="rajgrac_r-P2"></site>
+      <site site="rajgrac_r-P3"></site>
+    </spatial>
+    <spatial name="rajiliacus_r_tendon">
+      <site site="rajiliacus_r-P1"></site>
+      <site site="rajiliacus_r-P2"></site>
+      <site site="rajiliacus_r-P3"></site>
+      <site site="rajiliacus_r-P4"></site>
+    </spatial>
+    <spatial name="rajperbrev_r_tendon">
+      <site site="rajperbrev_r-P1"></site>
+      <site site="rajperbrev_r-P2"></site>
+      <site site="rajperbrev_r-P3"></site>
+      <site site="rajperbrev_r-P4"></site>
+      <site site="rajperbrev_r-P5"></site>
+    </spatial>
+    <spatial name="rajperlong_r_tendon">
+      <site site="rajperlong_r-P1"></site>
+      <site site="rajperlong_r-P2"></site>
+      <site site="rajperlong_r-P3"></site>
+      <site site="rajperlong_r-P4"></site>
+      <site site="rajperlong_r-P5"></site>
+      <site site="rajperlong_r-P6"></site>
+      <site site="rajperlong_r-P7"></site>
+    </spatial>
+    <spatial name="rajpiri_r_tendon">
+      <site site="rajpiri_r-P1"></site>
+      <site site="rajpiri_r-P2"></site>
+      <site site="rajpiri_r-P3"></site>
+    </spatial>
+    <spatial name="rajpsoas_r_tendon">
+      <site site="rajpsoas_r-P1"></site>
+      <site site="rajpsoas_r-P2"></site>
+      <site site="rajpsoas_r-P3"></site>
+      <site site="rajpsoas_r-P4"></site>
+    </spatial>
+    <spatial name="rajrecfem_r_tendon">
+      <site site="rajrecfem_r-P1"></site>
+      <site site="rajrecfem_r-P2"></site>
+      <site site="rajrecfem_r-P3"></site>
+      <site site="rajrecfem_r-P4"></site>
+      <site site="rajrecfem_r-P5"></site>
+    </spatial>
+    <spatial name="rajsart_r_tendon">
+      <site site="rajsart_r-P1"></site>
+      <site site="rajsart_r-P2"></site>
+      <site site="rajsart_r-P3"></site>
+      <site site="rajsart_r-P4"></site>
+      <site site="rajsart_r-P5"></site>
+    </spatial>
+    <spatial name="rajsemimem_r_tendon">
+      <site site="rajsemimem_r-P1"></site>
+      <site site="rajsemimem_r-P2"></site>
+    </spatial>
+    <spatial name="rajsemiten_r_tendon">
+      <site site="rajsemiten_r-P1"></site>
+      <site site="rajsemiten_r-P2"></site>
+      <site site="rajsemiten_r-P3"></site>
+    </spatial>
+    <spatial name="rajsoleus_r_tendon">
+      <site site="rajsoleus_r-P1"></site>
+      <site site="rajsoleus_r-P2"></site>
+    </spatial>
+    <spatial name="rajtfl_r_tendon">
+      <site site="rajtfl_r-P1"></site>
+      <site site="rajtfl_r-P2"></site>
+      <site site="rajtfl_r-P3"></site>
+      <site site="rajtfl_r-P4"></site>
+    </spatial>
+    <spatial name="rajtibant_r_tendon">
+      <site site="rajtibant_r-P1"></site>
+      <site site="rajtibant_r-P2"></site>
+      <site site="rajtibant_r-P3"></site>
+      <site site="rajtibant_r-P4"></site>
+    </spatial>
+    <spatial name="rajtibpost_r_tendon">
+      <site site="rajtibpost_r-P1"></site>
+      <site site="rajtibpost_r-P2"></site>
+      <site site="rajtibpost_r-P3"></site>
+      <site site="rajtibpost_r-P4"></site>
+    </spatial>
+    <spatial name="rajvasint_r_tendon">
+      <site site="rajvasint_r-P1"></site>
+      <site site="rajvasint_r-P2"></site>
+      <site site="rajvasint_r-P3"></site>
+      <site site="rajvasint_r-P4"></site>
+      <site site="rajvasint_r-P5"></site>
+    </spatial>
+    <spatial name="rajvaslat_r_tendon">
+      <site site="rajvaslat_r-P1"></site>
+      <site site="rajvaslat_r-P2"></site>
+      <site site="rajvaslat_r-P3"></site>
+      <site site="rajvaslat_r-P4"></site>
+      <site site="rajvaslat_r-P5"></site>
+    </spatial>
+    <spatial name="rajvasmed_r_tendon">
+      <site site="rajvasmed_r-P1"></site>
+      <site site="rajvasmed_r-P2"></site>
+      <site site="rajvasmed_r-P3"></site>
+      <site site="rajvasmed_r-P4"></site>
+      <site site="rajvasmed_r-P5"></site>
+    </spatial>
+    <spatial name="rajaddbrev_l_tendon">
+      <site site="rajaddbrev_l-P1"></site>
+      <site site="rajaddbrev_l-P2"></site>
+    </spatial>
+    <spatial name="rajaddlong_l_tendon">
+      <site site="rajaddlong_l-P1"></site>
+      <site site="rajaddlong_l-P2"></site>
+    </spatial>
+    <spatial name="rajaddmagDist_l_tendon">
+      <site site="rajaddmagDist_l-P1"></site>
+      <site site="rajaddmagDist_l-P2"></site>
+    </spatial>
+    <spatial name="rajaddmagIsch_l_tendon">
+      <site site="rajaddmagIsch_l-P1"></site>
+      <site site="rajaddmagIsch_l-P2"></site>
+    </spatial>
+    <spatial name="rajaddmagMid_l_tendon">
+      <site site="rajaddmagMid_l-P1"></site>
+      <site site="rajaddmagMid_l-P2"></site>
+    </spatial>
+    <spatial name="rajaddmagProx_l_tendon">
+      <site site="rajaddmagProx_l-P1"></site>
+      <site site="rajaddmagProx_l-P2"></site>
+    </spatial>
+    <spatial name="rajbflh_l_tendon">
+      <site site="rajbflh_l-P1"></site>
+      <site site="rajbflh_l-P2"></site>
+      <site site="rajbflh_l-P3"></site>
+    </spatial>
+    <spatial name="rajbfsh_l_tendon">
+      <site site="rajbfsh_l-P1"></site>
+      <site site="rajbfsh_l-P2"></site>
+    </spatial>
+    <spatial name="rajedl_l_tendon">
+      <site site="rajedl_l-P1"></site>
+      <site site="rajedl_l-P2"></site>
+      <site site="rajedl_l-P3"></site>
+      <site site="rajedl_l-P4"></site>
+      <site site="rajedl_l-P5"></site>
+      <site site="rajedl_l-P6"></site>
+    </spatial>
+    <spatial name="rajehl_l_tendon">
+      <site site="rajehl_l-P1"></site>
+      <site site="rajehl_l-P2"></site>
+      <site site="rajehl_l-P3"></site>
+      <site site="rajehl_l-P4"></site>
+      <site site="rajehl_l-P5"></site>
+      <site site="rajehl_l-P6"></site>
+      <site site="rajehl_l-P7"></site>
+      <site site="rajehl_l-P8"></site>
+    </spatial>
+    <spatial name="rajfdl_l_tendon">
+      <site site="rajfdl_l-P1"></site>
+      <site site="rajfdl_l-P2"></site>
+      <site site="rajfdl_l-P3"></site>
+      <site site="rajfdl_l-P4"></site>
+      <site site="rajfdl_l-P5"></site>
+      <site site="rajfdl_l-P6"></site>
+      <site site="rajfdl_l-P7"></site>
+      <site site="rajfdl_l-P8"></site>
+    </spatial>
+    <spatial name="rajfhl_l_tendon">
+      <site site="rajfhl_l-P1"></site>
+      <site site="rajfhl_l-P2"></site>
+      <site site="rajfhl_l-P3"></site>
+      <site site="rajfhl_l-P4"></site>
+      <site site="rajfhl_l-P5"></site>
+      <site site="rajfhl_l-P6"></site>
+      <site site="rajfhl_l-P7"></site>
+    </spatial>
+    <spatial name="rajgaslat_l_tendon">
+      <site site="rajgaslat_l-P1"></site>
+      <site site="rajgaslat_l-P2"></site>
+    </spatial>
+    <spatial name="rajgasmed_l_tendon">
+      <site site="rajgasmed_l-P1"></site>
+      <site site="rajgasmed_l-P2"></site>
+    </spatial>
+    <spatial name="rajglmax1_l_tendon">
+      <site site="rajglmax1_l-P1"></site>
+      <site site="rajglmax1_l-P2"></site>
+      <site site="rajglmax1_l-P3"></site>
+      <site site="rajglmax1_l-P4"></site>
+    </spatial>
+    <spatial name="rajglmax2_l_tendon">
+      <site site="rajglmax2_l-P1"></site>
+      <site site="rajglmax2_l-P2"></site>
+      <site site="rajglmax2_l-P3"></site>
+      <site site="rajglmax2_l-P4"></site>
+    </spatial>
+    <spatial name="rajglmax3_l_tendon">
+      <site site="rajglmax3_l-P1"></site>
+      <site site="rajglmax3_l-P2"></site>
+      <site site="rajglmax3_l-P3"></site>
+      <site site="rajglmax3_l-P4"></site>
+    </spatial>
+    <spatial name="rajglmed1_l_tendon">
+      <site site="rajglmed1_l-P1"></site>
+      <site site="rajglmed1_l-P2"></site>
+    </spatial>
+    <spatial name="rajglmed2_l_tendon">
+      <site site="rajglmed2_l-P1"></site>
+      <site site="rajglmed2_l-P2"></site>
+    </spatial>
+    <spatial name="rajglmed3_l_tendon">
+      <site site="rajglmed3_l-P1"></site>
+      <site site="rajglmed3_l-P2"></site>
+    </spatial>
+    <spatial name="rajglmin1_l_tendon">
+      <site site="rajglmin1_l-P1"></site>
+      <site site="rajglmin1_l-P2"></site>
+    </spatial>
+    <spatial name="rajglmin2_l_tendon">
+      <site site="rajglmin2_l-P1"></site>
+      <site site="rajglmin2_l-P2"></site>
+    </spatial>
+    <spatial name="rajglmin3_l_tendon">
+      <site site="rajglmin3_l-P1"></site>
+      <site site="rajglmin3_l-P2"></site>
+    </spatial>
+    <spatial name="rajgrac_l_tendon">
+      <site site="rajgrac_l-P1"></site>
+      <site site="rajgrac_l-P2"></site>
+      <site site="rajgrac_l-P3"></site>
+    </spatial>
+    <spatial name="rajiliacus_l_tendon">
+      <site site="rajiliacus_l-P1"></site>
+      <site site="rajiliacus_l-P2"></site>
+      <site site="rajiliacus_l-P3"></site>
+      <site site="rajiliacus_l-P4"></site>
+    </spatial>
+    <spatial name="rajperbrev_l_tendon">
+      <site site="rajperbrev_l-P1"></site>
+      <site site="rajperbrev_l-P2"></site>
+      <site site="rajperbrev_l-P3"></site>
+      <site site="rajperbrev_l-P4"></site>
+      <site site="rajperbrev_l-P5"></site>
+    </spatial>
+    <spatial name="rajperlong_l_tendon">
+      <site site="rajperlong_l-P1"></site>
+      <site site="rajperlong_l-P2"></site>
+      <site site="rajperlong_l-P3"></site>
+      <site site="rajperlong_l-P4"></site>
+      <site site="rajperlong_l-P5"></site>
+      <site site="rajperlong_l-P6"></site>
+      <site site="rajperlong_l-P7"></site>
+    </spatial>
+    <spatial name="rajpiri_l_tendon">
+      <site site="rajpiri_l-P1"></site>
+      <site site="rajpiri_l-P2"></site>
+      <site site="rajpiri_l-P3"></site>
+    </spatial>
+    <spatial name="rajpsoas_l_tendon">
+      <site site="rajpsoas_l-P1"></site>
+      <site site="rajpsoas_l-P2"></site>
+      <site site="rajpsoas_l-P3"></site>
+      <site site="rajpsoas_l-P4"></site>
+    </spatial>
+    <spatial name="rajrecfem_l_tendon">
+      <site site="rajrecfem_l-P1"></site>
+      <site site="rajrecfem_l-P2"></site>
+      <site site="rajrecfem_l-P3"></site>
+      <site site="rajrecfem_l-P4"></site>
+      <site site="rajrecfem_l-P5"></site>
+    </spatial>
+    <spatial name="rajsart_l_tendon">
+      <site site="rajsart_l-P1"></site>
+      <site site="rajsart_l-P2"></site>
+      <site site="rajsart_l-P3"></site>
+      <site site="rajsart_l-P4"></site>
+      <site site="rajsart_l-P5"></site>
+    </spatial>
+    <spatial name="rajsemimem_l_tendon">
+      <site site="rajsemimem_l-P1"></site>
+      <site site="rajsemimem_l-P2"></site>
+    </spatial>
+    <spatial name="rajsemiten_l_tendon">
+      <site site="rajsemiten_l-P1"></site>
+      <site site="rajsemiten_l-P2"></site>
+      <site site="rajsemiten_l-P3"></site>
+    </spatial>
+    <spatial name="rajsoleus_l_tendon">
+      <site site="rajsoleus_l-P1"></site>
+      <site site="rajsoleus_l-P2"></site>
+    </spatial>
+    <spatial name="rajtfl_l_tendon">
+      <site site="rajtfl_l-P1"></site>
+      <site site="rajtfl_l-P2"></site>
+      <site site="rajtfl_l-P3"></site>
+      <site site="rajtfl_l-P4"></site>
+    </spatial>
+    <spatial name="rajtibant_l_tendon">
+      <site site="rajtibant_l-P1"></site>
+      <site site="rajtibant_l-P2"></site>
+      <site site="rajtibant_l-P3"></site>
+      <site site="rajtibant_l-P4"></site>
+    </spatial>
+    <spatial name="rajtibpost_l_tendon">
+      <site site="rajtibpost_l-P1"></site>
+      <site site="rajtibpost_l-P2"></site>
+      <site site="rajtibpost_l-P3"></site>
+      <site site="rajtibpost_l-P4"></site>
+    </spatial>
+    <spatial name="rajvasint_l_tendon">
+      <site site="rajvasint_l-P1"></site>
+      <site site="rajvasint_l-P2"></site>
+      <site site="rajvasint_l-P3"></site>
+      <site site="rajvasint_l-P4"></site>
+      <site site="rajvasint_l-P5"></site>
+    </spatial>
+    <spatial name="rajvaslat_l_tendon">
+      <site site="rajvaslat_l-P1"></site>
+      <site site="rajvaslat_l-P2"></site>
+      <site site="rajvaslat_l-P3"></site>
+      <site site="rajvaslat_l-P4"></site>
+      <site site="rajvaslat_l-P5"></site>
+    </spatial>
+    <spatial name="rajvasmed_l_tendon">
+      <site site="rajvasmed_l-P1"></site>
+      <site site="rajvasmed_l-P2"></site>
+      <site site="rajvasmed_l-P3"></site>
+      <site site="rajvasmed_l-P4"></site>
+      <site site="rajvasmed_l-P5"></site>
+    </spatial>
+  </tendon>
+  <actuator>
+    <!-- <general name="lumbar_ext" joint="lumbar_extension" class="motor"></general>
+    <general name="lumbar_bend" joint="lumbar_bending" class="motor"></general>
+    <general name="lumbar_rot" joint="lumbar_rotation" class="motor"></general>
+    <general name="shoulder_flex_r" joint="arm_flex_r" class="motor"></general>
+    <general name="shoulder_add_r" joint="arm_add_r" class="motor"></general>
+    <general name="shoulder_rot_r" joint="arm_rot_r" class="motor"></general>
+    <general name="elbow_flex_r" joint="elbow_flex_r" class="motor"></general>
+    <general name="pro_sup_r" joint="pro_sup_r" class="motor"></general>
+    <general name="wrist_flex_r" joint="wrist_flex_r" class="motor"></general>
+    <general name="wrist_dev_r" joint="wrist_dev_r" class="motor"></general>
+    <general name="shoulder_flex_l" joint="arm_flex_l" class="motor"></general>
+    <general name="shoulder_add_l" joint="arm_add_l" class="motor"></general>
+    <general name="shoulder_rot_l" joint="arm_rot_l" class="motor"></general>
+    <general name="elbow_flex_l" joint="elbow_flex_l" class="motor"></general>
+    <general name="pro_sup_l" joint="pro_sup_l" class="motor"></general>
+    <general name="wrist_flex_l" joint="wrist_flex_l" class="motor"></general>
+    <general name="wrist_dev_l" joint="wrist_dev_l" class="motor"></general> -->
+    <muscle name="rajaddbrev_r" tendon="rajaddbrev_r_tendon" class="muscle" force="625.819672131148" lengthrange="0.086661 0.189083"></muscle>
+    <muscle name="rajaddlong_r" tendon="rajaddlong_r_tendon" class="muscle" force="916.8" lengthrange="0.185387 0.292561"></muscle>
+    <muscle name="rajaddmagDist_r" tendon="rajaddmagDist_r_tendon" class="muscle" force="597.295081967214" lengthrange="0.174307 0.348158"></muscle>
+    <muscle name="rajaddmagIsch_r" tendon="rajaddmagIsch_r_tendon" class="muscle" force="597.295081967214" lengthrange="0.293343 0.447343"></muscle>
+    <muscle name="rajaddmagMid_r" tendon="rajaddmagMid_r_tendon" class="muscle" force="597.295081967214" lengthrange="0.114003 0.248755"></muscle>
+    <muscle name="rajaddmagProx_r" tendon="rajaddmagProx_r_tendon" class="muscle" force="597.295081967214" lengthrange="0.0905833 0.191102"></muscle>
+    <muscle name="rajbflh_r" tendon="rajbflh_r_tendon" class="muscle" force="1313.18360655738" lengthrange="0.373273 0.469367"></muscle>
+    <muscle name="rajbfsh_r" tendon="rajbfsh_r_tendon" class="muscle" force="557.11475409836" lengthrange="0.159053 0.265525"></muscle>
+    <muscle name="rajedl_r" tendon="rajedl_r_tendon" class="muscle" force="603.4981556" lengthrange="0.402703 0.470359"></muscle>
+    <muscle name="rajehl_r" tendon="rajehl_r_tendon" class="muscle" force="285.8675474" lengthrange=" 0.36347 0.436819"></muscle>
+    <muscle name="rajfdl_r" tendon="rajfdl_r_tendon" class="muscle" force="423.177049180328" lengthrange="0.400512 0.443989"></muscle>
+    <muscle name="rajfhl_r" tendon="rajfhl_r_tendon" class="muscle" force="907.839344262294" lengthrange="0.379817 0.430773"></muscle>
+    <muscle name="rajgaslat_r" tendon="rajgaslat_r_tendon" class="muscle" force="1575.05901639344" lengthrange="0.404823 0.462328"></muscle>
+    <muscle name="rajgasmed_r" tendon="rajgasmed_r_tendon" class="muscle" force="3115.51475409836" lengthrange="0.423867 0.474169"></muscle>
+    <muscle name="rajglmax1_r" tendon="rajglmax1_r_tendon" class="muscle" force="983.783606557378" lengthrange="0.117783 0.255668"></muscle>
+    <muscle name="rajglmax2_r" tendon="rajglmax2_r_tendon" class="muscle" force="1406.04590163935" lengthrange="0.141149 0.287672"></muscle>
+    <muscle name="rajglmax3_r" tendon="rajglmax3_r_tendon" class="muscle" force="947.754098360656" lengthrange="0.147185 0.302122"></muscle>
+    <muscle name="rajglmed1_r" tendon="rajglmed1_r_tendon" class="muscle" force="1093.4667688" lengthrange="0.0905032 0.159876"></muscle>
+    <muscle name="rajglmed2_r" tendon="rajglmed2_r_tendon" class="muscle" force="765.0916616" lengthrange="0.0999352 0.169308"></muscle>
+    <muscle name="rajglmed3_r" tendon="rajglmed3_r_tendon" class="muscle" force="871.1992642" lengthrange="0.0799192 0.149292"></muscle>
+    <muscle name="rajglmin1_r" tendon="rajglmin1_r_tendon" class="muscle" force="374.045901639344" lengthrange="0.0496212 0.116588"></muscle>
+    <muscle name="rajglmin2_r" tendon="rajglmin2_r_tendon" class="muscle" force="394.819672131148" lengthrange="0.054099 0.110099"></muscle>
+    <muscle name="rajglmin3_r" tendon="rajglmin3_r_tendon" class="muscle" force="446.773770491804" lengthrange="0.0698696 0.107864"></muscle>
+    <muscle name="rajgrac_r" tendon="rajgrac_r_tendon" class="muscle" force="281.311475409836" lengthrange="0.284233 0.508672"></muscle>
+    <muscle name="rajiliacus_r" tendon="rajiliacus_r_tendon" class="muscle" force="1021.14098360656" lengthrange="0.147346 0.249797"></muscle>
+    <muscle name="rajperbrev_r" tendon="rajperbrev_r_tendon" class="muscle" force="521.2015988" lengthrange="0.169751 0.214198"></muscle>
+    <muscle name="rajperlong_r" tendon="rajperlong_r_tendon" class="muscle" force="1115.3714214" lengthrange="0.356844  0.40609"></muscle>
+    <muscle name="rajpiri_r" tendon="rajpiri_r_tendon" class="muscle" force="1029.7868852459" lengthrange="0.127709 0.153314"></muscle>
+    <muscle name="rajpsoas_r" tendon="rajpsoas_r_tendon" class="muscle" force="1426.79016393443" lengthrange="0.156641 0.270836"></muscle>
+    <muscle name="rajrecfem_r" tendon="rajrecfem_r_tendon" class="muscle" force="2191.74098360656" lengthrange="0.485553 0.559673"></muscle>
+    <muscle name="rajsart_r" tendon="rajsart_r_tendon" class="muscle" force="249.413114754098" lengthrange="0.325431 0.728293"></muscle>
+    <muscle name="rajsemimem_r" tendon="rajsemimem_r_tendon" class="muscle" force="2200.9868852459" lengthrange="0.380974  0.44775"></muscle>
+    <muscle name="rajsemiten_r" tendon="rajsemiten_r_tendon" class="muscle" force="591.295081967214" lengthrange="0.340903 0.528312"></muscle>
+    <muscle name="rajsoleus_r" tendon="rajsoleus_r_tendon" class="muscle" force="6194.84262295082" lengthrange="0.297175 0.338013"></muscle>
+    <muscle name="rajtfl_r" tendon="rajtfl_r_tendon" class="muscle" force="411.20655737705" lengthrange="0.496932 0.591802"></muscle>
+    <muscle name="rajtibant_r" tendon="rajtibant_r_tendon" class="muscle" force="1227.45245901639" lengthrange="0.273963 0.340966"></muscle>
+    <muscle name="rajtibpost_r" tendon="rajtibpost_r_tendon" class="muscle" force="1730.15409836065" lengthrange="0.299197 0.336031"></muscle>
+    <muscle name="rajvasint_r" tendon="rajvasint_r_tendon" class="muscle" force="1697.36065573771" lengthrange="0.251762 0.350864"></muscle>
+    <muscle name="rajvaslat_r" tendon="rajvaslat_r_tendon" class="muscle" force="5148.76721311476" lengthrange="0.268721  0.36496"></muscle>
+    <muscle name="rajvasmed_r" tendon="rajvasmed_r_tendon" class="muscle" force="2747.82295081966" lengthrange="0.244054 0.332353"></muscle>
+    <muscle name="rajaddbrev_l" tendon="rajaddbrev_l_tendon" class="muscle" force="625.819672131148" lengthrange="0.086661 0.189083"></muscle>
+    <muscle name="rajaddlong_l" tendon="rajaddlong_l_tendon" class="muscle" force="916.8" lengthrange="0.185387 0.292561"></muscle>
+    <muscle name="rajaddmagDist_l" tendon="rajaddmagDist_l_tendon" class="muscle" force="597.295081967214" lengthrange="0.174307 0.348158"></muscle>
+    <muscle name="rajaddmagIsch_l" tendon="rajaddmagIsch_l_tendon" class="muscle" force="597.295081967214" lengthrange="0.293343 0.447343"></muscle>
+    <muscle name="rajaddmagMid_l" tendon="rajaddmagMid_l_tendon" class="muscle" force="597.295081967214" lengthrange="0.114003 0.248755"></muscle>
+    <muscle name="rajaddmagProx_l" tendon="rajaddmagProx_l_tendon" class="muscle" force="597.295081967214" lengthrange="0.0905833 0.191102"></muscle>
+    <muscle name="rajbflh_l" tendon="rajbflh_l_tendon" class="muscle" force="1313.18360655738" lengthrange="0.373273 0.469367"></muscle>
+    <muscle name="rajbfsh_l" tendon="rajbfsh_l_tendon" class="muscle" force="557.11475409836" lengthrange="0.159053 0.265525"></muscle>
+    <muscle name="rajedl_l" tendon="rajedl_l_tendon" class="muscle" force="603.4981556" lengthrange="0.402703 0.470359"></muscle>
+    <muscle name="rajehl_l" tendon="rajehl_l_tendon" class="muscle" force="285.8675474" lengthrange=" 0.36347 0.436819"></muscle>
+    <muscle name="rajfdl_l" tendon="rajfdl_l_tendon" class="muscle" force="423.177049180328" lengthrange="0.400512 0.443989"></muscle>
+    <muscle name="rajfhl_l" tendon="rajfhl_l_tendon" class="muscle" force="907.839344262294" lengthrange="0.379817 0.430773"></muscle>
+    <muscle name="rajgaslat_l" tendon="rajgaslat_l_tendon" class="muscle" force="1575.05901639344" lengthrange="0.404823 0.462328"></muscle>
+    <muscle name="rajgasmed_l" tendon="rajgasmed_l_tendon" class="muscle" force="3115.51475409836" lengthrange="0.423867 0.474169"></muscle>
+    <muscle name="rajglmax1_l" tendon="rajglmax1_l_tendon" class="muscle" force="983.783606557378" lengthrange="0.117783 0.255668"></muscle>
+    <muscle name="rajglmax2_l" tendon="rajglmax2_l_tendon" class="muscle" force="1406.04590163935" lengthrange="0.141149 0.287672"></muscle>
+    <muscle name="rajglmax3_l" tendon="rajglmax3_l_tendon" class="muscle" force="947.754098360656" lengthrange="0.147185 0.302122"></muscle>
+    <muscle name="rajglmed1_l" tendon="rajglmed1_l_tendon" class="muscle" force="1093.4667688" lengthrange="0.0905032 0.159876"></muscle>
+    <muscle name="rajglmed2_l" tendon="rajglmed2_l_tendon" class="muscle" force="765.0916616" lengthrange="0.0999352 0.169308"></muscle>
+    <muscle name="rajglmed3_l" tendon="rajglmed3_l_tendon" class="muscle" force="871.1992642" lengthrange="0.0799192 0.149292"></muscle>
+    <muscle name="rajglmin1_l" tendon="rajglmin1_l_tendon" class="muscle" force="374.045901639344" lengthrange="0.0496212 0.116588"></muscle>
+    <muscle name="rajglmin2_l" tendon="rajglmin2_l_tendon" class="muscle" force="394.819672131148" lengthrange="0.054099 0.110099"></muscle>
+    <muscle name="rajglmin3_l" tendon="rajglmin3_l_tendon" class="muscle" force="446.773770491804" lengthrange="0.0698696 0.107864"></muscle>
+    <muscle name="rajgrac_l" tendon="rajgrac_l_tendon" class="muscle" force="281.311475409836" lengthrange="0.284233 0.508672"></muscle>
+    <muscle name="rajiliacus_l" tendon="rajiliacus_l_tendon" class="muscle" force="1021.14098360656" lengthrange="0.147346 0.249797"></muscle>
+    <muscle name="rajperbrev_l" tendon="rajperbrev_l_tendon" class="muscle" force="521.2015988" lengthrange="0.169751 0.214198"></muscle>
+    <muscle name="rajperlong_l" tendon="rajperlong_l_tendon" class="muscle" force="1115.3714214" lengthrange="0.356844  0.40609"></muscle>
+    <muscle name="rajpiri_l" tendon="rajpiri_l_tendon" class="muscle" force="1029.7868852459" lengthrange="0.127709 0.153314"></muscle>
+    <muscle name="rajpsoas_l" tendon="rajpsoas_l_tendon" class="muscle" force="1426.79016393443" lengthrange="0.156641 0.270836"></muscle>
+    <muscle name="rajrecfem_l" tendon="rajrecfem_l_tendon" class="muscle" force="2191.74098360656" lengthrange="0.485553 0.559673"></muscle>
+    <muscle name="rajsart_l" tendon="rajsart_l_tendon" class="muscle" force="249.413114754098" lengthrange="0.325431 0.728293"></muscle>
+    <muscle name="rajsemimem_l" tendon="rajsemimem_l_tendon" class="muscle" force="2200.9868852459" lengthrange="0.380974  0.44775"></muscle>
+    <muscle name="rajsemiten_l" tendon="rajsemiten_l_tendon" class="muscle" force="591.295081967214" lengthrange="0.340903 0.528312"></muscle>
+    <muscle name="rajsoleus_l" tendon="rajsoleus_l_tendon" class="muscle" force="6194.84262295082" lengthrange="0.297175 0.338013"></muscle>
+    <muscle name="rajtfl_l" tendon="rajtfl_l_tendon" class="muscle" force="411.20655737705" lengthrange="0.496932 0.591802"></muscle>
+    <muscle name="rajtibant_l" tendon="rajtibant_l_tendon" class="muscle" force="1227.45245901639" lengthrange="0.273963 0.340966"></muscle>
+    <muscle name="rajtibpost_l" tendon="rajtibpost_l_tendon" class="muscle" force="1730.15409836065" lengthrange="0.299197 0.336031"></muscle>
+    <muscle name="rajvasint_l" tendon="rajvasint_l_tendon" class="muscle" force="1697.36065573771" lengthrange="0.251762 0.350864"></muscle>
+    <muscle name="rajvaslat_l" tendon="rajvaslat_l_tendon" class="muscle" force="5148.76721311476" lengthrange="0.268721  0.36496"></muscle>
+    <muscle name="rajvasmed_l" tendon="rajvasmed_l_tendon" class="muscle" force="2747.82295081966" lengthrange="0.244054 0.332353"></muscle>
+  </actuator>
+  <equality>
+    <joint name="rajknee_angle_r_translation2_constraint" active="true" joint1="rajknee_angle_r_translation2" joint2="rajknee_angle_r" polycoef="7.69254e-11 0.00587971 -0.00125622 -2.61846e-06 6.24355e-07" solimp="0.9999 0.9999 0.001 0.5 2"></joint>
+    <joint name="rajknee_angle_r_translation1_constraint" active="true" joint1="rajknee_angle_r_translation1" joint2="rajknee_angle_r" polycoef="9.53733e-08 0.00312879 -0.00230804 0.000561561 5.68366e-07" solimp="0.9999 0.9999 0.001 0.5 2"></joint>
+    <joint name="rajknee_angle_r_rotation2_constraint" active="true" joint1="rajknee_angle_r_rotation2" joint2="rajknee_angle_r" polycoef="-1.47325e-08   0.0791 -0.0328478 -0.0252183 0.0108321" solimp="0.9999 0.9999 0.001 0.5 2"></joint>
+    <joint name="rajknee_angle_r_rotation3_constraint" active="true" joint1="rajknee_angle_r_rotation3" joint2="rajknee_angle_r" polycoef="1.08939e-08 0.369499 -0.169478 0.0251643 3.50498e-07" solimp="0.9999 0.9999 0.001 0.5 2"></joint>
+    <joint name="rajknee_angle_r_beta_translation2_constraint" active="true" joint1="rajknee_angle_r_beta_translation2" joint2="rajknee_angle_r" polycoef="-0.0108281 -0.0487847 0.00927644 0.0131673 -0.00349673" solimp="0.9999 0.9999 0.001 0.5 2"></joint>
+    <joint name="rajknee_angle_r_beta_translation1_constraint" active="true" joint1="rajknee_angle_r_beta_translation1" joint2="rajknee_angle_r" polycoef="0.0524192 -0.0150188 -0.0340522 0.0133393 -0.000879151" solimp="0.9999 0.9999 0.001 0.5 2"></joint>
+    <joint name="rajknee_angle_r_beta_rotation1_constraint" active="true" joint1="rajknee_angle_r_beta_rotation1" joint2="rajknee_angle_r" polycoef="0.010506 0.0247615 -1.31647 0.716337 -0.138302" solimp="0.9999 0.9999 0.001 0.5 2"></joint>
+    <joint name="rajsubtalar_angle_r_constraint" active="true" joint1="rajsubtalar_angle_r" polycoef="       0        0        0        0        0"></joint>
+    <joint name="rajmtp_angle_r_constraint" active="true" joint1="rajmtp_angle_r" polycoef="       0        0        0        0        0"></joint>
+    <joint name="rajknee_angle_l_translation2_constraint" active="true" joint1="rajknee_angle_l_translation2" joint2="rajknee_angle_l" polycoef="-7.69254e-11 -0.00587971 0.00125622 2.61846e-06 -6.24355e-07" solimp="0.9999 0.9999 0.001 0.5 2"></joint>
+    <joint name="rajknee_angle_l_translation1_constraint" active="true" joint1="rajknee_angle_l_translation1" joint2="rajknee_angle_l" polycoef="9.53733e-08 0.00312879 -0.00230804 0.000561561 5.68366e-07" solimp="0.9999 0.9999 0.001 0.5 2"></joint>
+    <joint name="rajknee_angle_l_rotation2_constraint" active="true" joint1="rajknee_angle_l_rotation2" joint2="rajknee_angle_l" polycoef="-1.47325e-08   0.0791 -0.0328478 -0.0252183 0.0108321" solimp="0.9999 0.9999 0.001 0.5 2"></joint>
+    <joint name="rajknee_angle_l_rotation3_constraint" active="true" joint1="rajknee_angle_l_rotation3" joint2="rajknee_angle_l" polycoef="-1.08939e-08 -0.369499 0.169478 -0.0251643 -3.50498e-07" solimp="0.9999 0.9999 0.001 0.5 2"></joint>
+    <joint name="rajknee_angle_l_beta_translation2_constraint" active="true" joint1="rajknee_angle_l_beta_translation2" joint2="rajknee_angle_l" polycoef="-0.0108281 -0.0487847 0.00927644 0.0131673 -0.00349673" solimp="0.9999 0.9999 0.001 0.5 2"></joint>
+    <joint name="rajknee_angle_l_beta_translation1_constraint" active="true" joint1="rajknee_angle_l_beta_translation1" joint2="rajknee_angle_l" polycoef="0.0524192 -0.0150188 -0.0340522 0.0133393 -0.000879151" solimp="0.9999 0.9999 0.001 0.5 2"></joint>
+    <joint name="rajknee_angle_l_beta_rotation1_constraint" active="true" joint1="rajknee_angle_l_beta_rotation1" joint2="rajknee_angle_l" polycoef="0.010506 0.0247615 -1.31647 0.716337 -0.138302" solimp="0.9999 0.9999 0.001 0.5 2"></joint>
+    <joint name="rajsubtalar_angle_l_constraint" active="true" joint1="rajsubtalar_angle_l" polycoef="       0        0        0        0        0"></joint>
+    <joint name="rajmtp_angle_l_constraint" active="true" joint1="rajmtp_angle_l" polycoef="       0        0        0        0        0"></joint>
+    <joint name="rajwrist_flex_r_constraint" active="true" joint1="rajwrist_flex_r" polycoef="       0        0        0        0        0"></joint>
+    <joint name="rajwrist_dev_r_constraint" active="true" joint1="rajwrist_dev_r" polycoef="       0        0        0        0        0"></joint>
+    <joint name="rajwrist_flex_l_constraint" active="true" joint1="rajwrist_flex_l" polycoef="       0        0        0        0        0"></joint>
+    <joint name="rajwrist_dev_l_constraint" active="true" joint1="rajwrist_dev_l" polycoef="       0        0        0        0        0"></joint>
+    <weld name="origin_to_worldbody" body1="pelvis" active="false"></weld>
+  </equality>
+</mujocoinclude>
