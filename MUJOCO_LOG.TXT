@@ -1,0 +1,3 @@
+Thu Oct  3 03:45:42 2024
+WARNING: mju_openResource: unknown file 'environment/assets//home/yuxuan/.local/lib/python3.8/site-packages/myosuite/simhive/myo_sim/torso/assets/myotorsorigid_assets.xml'
+

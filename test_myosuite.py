@@ -6,26 +6,26 @@ from tqdm import tqdm_notebook as tqdm
 env = gym.make("myoChallengeOslRunFixed-v0")
 from stable_baselines3 import PPO
 
-model = PPO("MlpPolicy", env, verbose=0)
-model.learn(total_timesteps=100)
+# model = PPO("MlpPolicy", env, verbose=0)
+# model.learn(total_timesteps=100)
 
 
-# evaluate policy
-all_rewards = []
-for _ in tqdm(range(100)): # 5 random targets
-  ep_rewards = []
-  done = False
-  obs,_ = env.reset()
-  done = False
-  for _ in range(100):
-      obs = env.observation_space.sample()
-      # get the next action from the policy
-      action, _ = model.predict(obs, deterministic=True)
-      # take an action based on the current observation
-      obs, reward, done, _, info = env.step(action)
-      ep_rewards.append(reward)
-  all_rewards.append(np.sum(ep_rewards))
-print(f"Average reward: {np.mean(all_rewards)} over 5 episodes")
+# # evaluate policy
+# all_rewards = []
+# for _ in tqdm(range(100)): # 5 random targets
+#   ep_rewards = []
+#   done = False
+#   obs,_ = env.reset()
+#   done = False
+#   for _ in range(100):
+#       obs = env.observation_space.sample()
+#       # get the next action from the policy
+#       action, _ = model.predict(obs, deterministic=True)
+#       # take an action based on the current observation
+#       obs, reward, done, _, info = env.step(action)
+#       ep_rewards.append(reward)
+#   all_rewards.append(np.sum(ep_rewards))
+# print(f"Average reward: {np.mean(all_rewards)} over 5 episodes")
 
 
 for ep in range(5):
