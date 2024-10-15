@@ -6,8 +6,8 @@ from tqdm import tqdm_notebook as tqdm
 env = gym.make("myoChallengeOslRunFixed-v0")
 from stable_baselines3 import PPO
 
-# model = PPO("MlpPolicy", env, verbose=0)
-# model.learn(total_timesteps=100)
+model = PPO("MlpPolicy", env, verbose=0)
+model.learn(total_timesteps=100)
 
 
 # # evaluate policy
