@@ -2,10 +2,8 @@
  
 myosuite==2.8.0
 
-```
- ./simulate Some_Material/o2Mconverted/FullBodyModel_SimpleArms_Hamner2010_Markers_v2_0_converted/FullBodyModel_SimpleArms_Hamner2010_Markers_v2_0_converted.xml
-```
+## 关于模型
 
-```
-./simulate {your/path/to/myosuite/envs/myo/assets/leg/}myoosl_runtrack.xml
-```
+在myosuite假肢跟踪模型基础上，加入了上肢的运动，需要把相关配置文件放入对应文件夹内来配置环境
+
+请看'''/environment/model/readme.txt'''
