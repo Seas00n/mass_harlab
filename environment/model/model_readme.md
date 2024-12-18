@@ -5,7 +5,9 @@ Version: 2.8.0
 myosuite模型路径在
 /.local/lib/python3.8/site-packages/myosuite/envs/myo/assets/leg/
 可通过mujoco simulate拖动查看
+
 cd /.local/lib/python3.8/site-packages/myosuite/envs/myo/assets/leg/
+
 ./simulate
 
 该模型为混合模型，
