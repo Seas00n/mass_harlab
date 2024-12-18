@@ -1,2 +1,0 @@
-将Raja和myoosl_runtrack2.xml放在myoosl_runtrack下
-将raj放在/myosuite/simhive/myo_sim/下

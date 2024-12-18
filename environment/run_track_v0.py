@@ -763,6 +763,9 @@ class RunTrack(WalkEnvV0):
         '''
         Return a list of actuator names according to the index ID of the actuators
         '''
+        name = [self.sim.model.actuator(act_id).name for act_id in range(1, self.sim.model.na)]
+        for i in range(len(name)):
+            print(i, name[i])
         return [self.sim.model.actuator(act_id).name for act_id in range(1, self.sim.model.na)]
 
     def get_limitfrc(self, joint_name):

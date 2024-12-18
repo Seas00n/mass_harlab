@@ -11,6 +11,7 @@ from myosuite.utils.quat_math import quat2euler, euler2mat, euler2quat, quat2eul
 from myosuite.envs.heightfields import TrackField
 from myosuite.envs.myo.assets.leg.myoosl_control import MyoOSLController
 
+
 class TrackTypes(Enum):
     FLAT = 0
     HILLY = 1
@@ -41,10 +42,12 @@ class WalkEnvV1(BaseV0):
         "ref_rot": 10.0,
         "joint_angle_rew": 5.0
     }
+
     def __init__(self, model_path, obsd_model_path=None, seed=None, **kwargs):
         gym.utils.EzPickle.__init__(self, model_path, obsd_model_path, seed, **kwargs)
         super().__init__(model_path=model_path, obsd_model_path=obsd_model_path, seed=seed, env_credits=self.MYO_CREDIT)
         self._setup(**kwargs)
+
     def _setup(self,
                obs_keys: list = DEFAULT_OBS_KEYS,
                weighted_reward_keys: dict = DEFAULT_RWD_KEYS_AND_WEIGHTS,
@@ -65,10 +68,7 @@ class WalkEnvV1(BaseV0):
         self.target_y_vel = target_y_vel
         self.target_rot = target_rot
         self.steps = 0
-        super()._setup(obs_keys=obs_keys,
-                       weighted_reward_keys=weighted_reward_keys,
-                       **kwargs
-                       )
+        super()._setup(obs_keys=obs_keys,weighted_reward_keys=weighted_reward_keys,**kwargs)
         # move heightfield down if not used
         self.sim.model.geom_rgba[self.sim.model.geom_name2id('terrain')][-1] = 0.0
         self.sim.model.geom_pos[self.sim.model.geom_name2id('terrain')] = np.array([0, 0, -10])
@@ -263,6 +263,7 @@ class WalkEnvV1(BaseV0):
         return np.array([self.sim.data.qpos[self.sim.model.jnt_qposadr[self.sim.model.joint_name2id(name)]] for name in names])
 
 
+
 class RunTrack(WalkEnvV1):
     DEFAULT_OBS_KEYS = [
         'internal_qpos',
@@ -284,6 +285,10 @@ class RunTrack(WalkEnvV1):
     OSL_PARAM_LIST = []
     OSL_PARAM_SELECT = 0
 
+    pain_jnt = ['hip_adduction_l', 'hip_adduction_r', 'hip_flexion_l', 'hip_flexion_r', 'hip_rotation_l', 'hip_rotation_r',
+                'knee_angle_l', 'knee_angle_l_rotation2', 'knee_angle_l_rotation3',
+                'mtp_angle_l', 'ankle_angle_l', 'subtalar_angle_l']
+    
     biological_jnt = ['rajlumbar_extension','rajlumbar_bending','rajlumbar_rotation',
                       'rajarm_flex_r','rajarm_add_r','rajarm_rot_r','rajelbow_flex_r',
                       'rajpro_sup_r','rajwrist_flex_r','rajwrist_dev_r','rajarm_flex_l',
@@ -303,7 +308,7 @@ class RunTrack(WalkEnvV1):
                       'rajarm_add_l','rajarm_rot_l','rajelbow_flex_l','rajpro_sup_l',
                       'rajwrist_flex_l','rajwrist_dev_l']
 
-    biological_act = ['addbrev_l', 'addbrev_r', 'addlong_l', 'addlong_r', 'addmagDist_l', 'addmagIsch_l', 'addmagMid_l', 
+    lower_muscle_act = ['addbrev_l', 'addbrev_r', 'addlong_l', 'addlong_r', 'addmagDist_l', 'addmagIsch_l', 'addmagMid_l', 
                       'addmagProx_l', 'bflh_l', 'bfsh_l', 'edl_l', 'ehl_l', 'fdl_l', 'fhl_l', 'gaslat_l', 'gasmed_l', 
                       'glmax1_l', 'glmax1_r', 'glmax2_l', 'glmax2_r', 'glmax3_l', 'glmax3_r', 'glmed1_l', 'glmed1_r', 
                       'glmed2_l', 'glmed2_r', 'glmed3_l', 'glmed3_r', 'glmin1_l', 'glmin1_r', 'glmin2_l', 'glmin2_r', 
@@ -311,7 +316,7 @@ class RunTrack(WalkEnvV1):
                       'perbrev_l', 'perlong_l', 'piri_l', 'piri_r', 'psoas_l', 'psoas_r', 'recfem_l', 'sart_l', 
                       'semimem_l', 'semiten_l', 'soleus_l', 'tfl_l', 'tibant_l', 'tibpost_l', 'vasint_l', 
                       'vaslat_l', 'vasmed_l']
-    upper_biological_act = ['lumbar_ext', 'lumbar_bend', 'lumbar_rot', 'shoulder_flex_r',
+    upper_joint_act = ['lumbar_ext', 'lumbar_bend', 'lumbar_rot', 'shoulder_flex_r',
                             'shoulder_add_r', 'shoulder_rot_r', 'elbow_flex_r', 'pro_sup_r',
                             'wrist_flex_r', 'wrist_dev_r', 'shoulder_flex_l', 'shoulder_add_l',
                             'shoulder_rot_l', 'elbow_flex_l', 'pro_sup_l', 'wrist_flex_l', 'wrist_dev_l']
@@ -388,12 +393,18 @@ class RunTrack(WalkEnvV1):
         obs_dict['model_root_pos'] = sim.data.qpos[:2].copy()
         obs_dict['model_root_vel'] = sim.data.qvel[:2].copy()
 
+        if sim.model.na>0:
+            obs_dict['act'] = sim.data.act[:].copy()
+
         if not self.trackfield is None:
             obs_dict['hfield'] = self.trackfield.get_heightmap_obs()
         return obs_dict
 
     def get_reward_dict(self, obs_dict):
-        pass
+        act_mag = np.mean(
+            np.square(self.obs_dict['act']) if self.sim.model.na != 0 else 0
+        )
+        pain = self.get_pain()
 
 
     def _get_actuator_params(self):
@@ -414,18 +425,32 @@ class RunTrack(WalkEnvV1):
         self.musc_operating_len = np.array(self._get_muscle_operating_length())
     
     def _get_upper_actuators_names(self):
+        print("Upper Actuator Names:")
+        name = [self.sim.model.actuator(act_id).name for act_id in range(self.sim.model.na+2, self.sim.model.nu)]
+        for i in range(len(name)):
+            print(i, name[i])
         return [self.sim.model.actuator(act_id).name for act_id in range(self.sim.model.na+2, self.sim.model.nu)]
 
     def _get_actuator_names(self):
         '''
         Return a list of actuator names according to the index ID of the actuators
+        /.local/lib/python3.8/site-packages/myosuite/simhive/myo_sim/osl/assets/myolegs_osl_assets.xml
+        <actuator>
         '''
-        return [self.sim.model.actuator(act_id).name for act_id in range(1, self.sim.model.na)]
+        print("Muscle Names:")
+        name = [self.sim.model.actuator(act_id).name for act_id in range(0, self.sim.model.na)]
+        for i in range(len(name)):
+            print(i, name[i])
+        return [self.sim.model.actuator(act_id).name for act_id in range(0, self.sim.model.na)]
     
     def _get_joint_names(self):
         '''
         Return a list of joint names according to the index ID of the joint angles
         '''
+        print("Joint Names:")
+        name = [self.sim.model.joint(jnt_id).name for jnt_id in range(1, self.sim.model.njnt)]
+        for i in range(len(name)):
+            print(i, name[i])
         return [self.sim.model.joint(jnt_id).name for jnt_id in range(1, self.sim.model.njnt)]
     
     def _get_muscle_fmax(self):
@@ -473,9 +498,9 @@ class RunTrack(WalkEnvV1):
         """
         Get the muscle lengths. Remove the osl leg actuators from the data.
         """
-        temp_len = np.zeros(len(self.biological_act),)
+        temp_len = np.zeros(len(self.lower_muscle_act),)
         counter = 0
-        for jnt in self.biological_act:
+        for jnt in self.lower_muscle_act:
             temp_len[counter] = self.sim.data.actuator(jnt).length[0].copy()
             counter += 1
         return temp_len
@@ -484,9 +509,9 @@ class RunTrack(WalkEnvV1):
         """
         Get the muscle forces. Remove the osl leg actuators from the data.
         """
-        temp_frc = np.zeros(len(self.biological_act),)
+        temp_frc = np.zeros(len(self.lower_muscle_act),)
         counter = 0
-        for jnt in self.biological_act:
+        for jnt in self.lower_muscle_act:
             temp_frc[counter] = self.sim.data.actuator(jnt).force[0].copy()
             counter += 1
         return np.clip(temp_frc / 1000, -100, 100)
@@ -495,9 +520,9 @@ class RunTrack(WalkEnvV1):
         """
         Get the muscle velocities. Remove the osl leg actuators from the data.
         """
-        temp_vel = np.zeros(len(self.biological_act),)
+        temp_vel = np.zeros(len(self.lower_muscle_act),)
         counter = 0
-        for jnt in self.biological_act:
+        for jnt in self.lower_muscle_act:
             temp_vel[counter] = self.sim.data.actuator(jnt).velocity[0].copy()
             counter += 1
         return np.clip(temp_vel, -100, 100)
@@ -519,10 +544,22 @@ class RunTrack(WalkEnvV1):
         return temp_qvel * self.dt
     
     def upper_joint_torque(self):
-        temp_torque = np.zeros(len(self.upper_biological_act),)
+        temp_torque = np.zeros(len(self.upper_joint_act),)
         counter = 0
-        for jnt in self.upper_biological_act:
+        for jnt in self.upper_joint_act:
             temp_torque[counter] = self.sim.data.actuator(jnt).force[0].copy()
             counter += 1
         return np.clip(temp_torque, -150, 150)
+    
+    def get_pain(self):
+        """
+        Pain is the sum of the joint limit violation forces.
+        """
+        if not self.startFlag:
+            return -1
+
+        pain_score = 0
+        for joint in self.pain_jnt:
+            pain_score += np.clip(np.abs(self.get_limitfrc(joint).squeeze()), -1000, 1000) / 1000
+        return pain_score / len(self.pain_jnt)
     
